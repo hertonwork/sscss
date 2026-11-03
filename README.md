@@ -88,9 +88,13 @@ npx sscss --full               # every utility as one stylesheet; --core for the
 From Node (build scripts, PHP/Twig template pipelines, anything):
 
 ```js
-import { cssFor, fullCss, core, vocab } from '@labs_kai/sscss';
-const { css, unknown } = cssFor(['f', 'ac', 'p4', 'm-c2']);   // core + those four rules
+import { cssFor, classesIn, fullCss, core, vocab } from '@labs_kai/sscss';
+const { css, unknown } = cssFor([...classesIn(html)]);   // core + exactly the rules the page uses
+import { main } from '@labs_kai/sscss/cli';                 // the CLI as a function: await main(['page.html', '--write'])
 ```
+
+The skill's `skills/sscss/scripts/sscss.mjs` is all of the above in one dependency-free file: copy it into a project and
+run it (`node sscss.mjs page.html --write`) or import it — a build script needs nothing installed.
 
 No build step? Load the whole thing — still smaller than one page of most frameworks:
 

@@ -118,6 +118,9 @@ test('skill: the bundled generator and cheat sheet are built from the sources an
   const [a, b] = await Promise.all([run('node', [bin, page]), run('node', [path.join(skill, 'scripts/sscss.mjs'), page])]);
   assert.equal(a.stdout, b.stdout, 'skill generator output differs from bin/sscss.mjs');
   assert.equal(a.stdout, cssFor(['f', 'm-c2', 'an-fx']).css);
+  const bundle = await import(path.join(skill, 'scripts/sscss.mjs'));
+  assert.equal(bundle.cssFor(['f', 'm-c2', 'an-fx']).css, cssFor(['f', 'm-c2', 'an-fx']).css, 'the bundle is importable and agrees');
+  assert.equal(typeof bundle.main, 'function');
   const starter = await readFile(path.join(skill, 'assets/starter.html'), 'utf8');
   assert.deepEqual(cssFor([...classesIn(starter)]).unknown, [], 'starter uses only vocabulary classes');
   assert.match(starter, /<script><!--minim--><\/script>\s*<\/body>/);
