@@ -125,5 +125,8 @@ Build order: state JSON → markup with sscss classes and `data-*` bindings, ini
   `#1a7a37` (4.9:1 on `--sf`, 5.4:1 with white on it). Changing the accent means re-checking both.
 - **`<pre>` in a grid column** overflowed on phones until `gr` gave children `min-width: 0`.
 - **Responsive variants of motion** (`m-an-spin`) are meaningless and are not generated.
+- **Tag names in comments.** A head comment that said `<style data-sscss>` and `</head>` fooled an early `--write`
+  into replacing the wrong block and inserting inside the comment. The generator now blanks comments before it
+  looks; still, describe tags in comments ("the data-sscss style block") rather than writing them.
 - **A playground that needs every class** can't be generated for: inline the full vocabulary in a second `<style>`,
   minus what the page's generated block already carries (the site's build does this).
