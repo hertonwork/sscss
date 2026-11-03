@@ -80,7 +80,7 @@ test('dist: the three stylesheets are what the API returns, within budget', asyn
 test('cli: generates, --write inlines idempotently, page-own classes are not unknown, --check fails on real unknowns', async () => {
   const dir = await mkdtemp(path.join(tmpdir(), 'sscss-'));
   const page = path.join(dir, 'page.html');
-  const src = `<!DOCTYPE html><html><head><title>t</title><!-- a comment that mentions <style data-sscss> and <style> --><style>.hero{font-size:3rem}</style></head>
+  const src = `<!DOCTYPE html><html><head><title>t</title><!-- a comment that mentions <style data-sscss>, <style> and </head> --><style>.hero{font-size:3rem}</style></head>
 <body><div class="f ac m-c2 hero"><p class="p4" data-class="an-spin:busy">hi</p><code>class="not-a-class"</code></div></body></html>`;
   await writeFile(page, src);
   const { stdout, stderr } = await run('node', [bin, page]);

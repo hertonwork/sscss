@@ -238,9 +238,12 @@ if (flag('--check') && unknown.length) process.exit(1);
 
 if (flag('--write')) {
   const tag = `<style data-sscss>${css}</style>`;
-  html = /<style data-sscss>[^<]*<\/style>/.test(html)   // our block holds no "<", so a comment that mentions the tag can't be mistaken for it
-    ? html.replace(/<style data-sscss>[^<]*<\/style>/, () => tag)
-    : html.replace(/<\/head>/i, () => `  ${tag}\n</head>`);
+  // find our block or </head> on a copy with comments blanked out, so a comment that mentions a tag can't mislead us
+  const masked = html.replace(/<!--[\s\S]*?-->/g, (c) => ' '.repeat(c.length));
+  const old = masked.match(/<style data-sscss>[^<]*<\/style>/), head = masked.search(/<\/head>/i);
+  if (old) html = html.slice(0, old.index) + tag + html.slice(old.index + old[0].length);
+  else if (head !== -1) html = html.slice(0, head) + `  ${tag}\n` + html.slice(head);
+  else { console.error(`  ${file} has no </head> to inline into`); process.exit(1); }
   await writeFile(file, html);
   console.error(`  inlined into ${file}`);
 } else if (!flag('--check')) {
