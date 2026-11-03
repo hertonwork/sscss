@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <title>Product — one line that says what it is</title>
+  <meta name="description" content="One sentence for search results and link previews.">
+  <link rel="canonical" href="https://example.com/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a7a37'/%3E%3C/svg%3E">
+
+  <!-- The page's own rules: what the vocabulary doesn't cover. Override tokens here; keep it short. -->
+  <style>
+    h1 { font-size: clamp(2.6rem, 6.6vw, 5.4rem); letter-spacing: -.035em; line-height: .95; margin: 0; text-wrap: balance }
+    h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); letter-spacing: -.025em; line-height: 1.02; margin: 0; text-wrap: balance }
+    input, textarea { font: inherit; color: var(--ink); background: var(--bg); border: 2px solid var(--sf2); border-radius: var(--r); padding: .55rem .75rem; width: 100% }
+    input:focus, textarea:focus { border-color: var(--acc); outline: none }
+    :focus-visible { outline: 3px solid var(--acc); outline-offset: 3px }
+    button { font: inherit; font-weight: 600; cursor: pointer }
+  </style>
+  <!-- `sscss starter.html --write` puts <style data-sscss> here. Run it after every markup edit. -->
+
+  <script type="application/json" data-state="app" data-root="root">
+    { "name": "", "seats": 3, "busy": false, "level": 40 }
+  </script>
+</head>
+<body>
+
+<header class="w5 mx px6 py4 f ac jb">
+  <strong class="t4 tt">Product</strong>
+  <nav class="f ac g4 t1 md" aria-label="Site">
+    <a href="#how" class="nu ci h-cm">How</a>
+    <a href="#start" class="r ba cw px4 py2 nu an-fx">Start</a>
+  </nav>
+</header>
+
+<main id="root">
+
+  <section class="w5 mx px6 py10 gr g8 m-c2 ac">
+    <div>
+      <h1>A headline of two lines.</h1>
+      <p class="mt6 t3 cm w6">One paragraph that says what this is and who it is for.</p>
+      <p class="mt7 f fw g3"><a href="#start" class="r ba cw px5 py3 nu sb an-fx">Primary action</a><a href="#how" class="r bs ci px5 py3 nu sb an-fx h-bs2">Secondary</a></p>
+    </div>
+    <div class="r2 bs p6">
+      <label class="bk sb mb2" for="name">Your name</label>
+      <input id="name" data-model="name" autocomplete="name">
+      <p class="mt4 cm">Hello, <b class="ci" data-watch="name"></b></p>
+      <p class="mt4 f ac g3">
+        <button type="button" commandfor="root" command="--inc" value="seats" data-step="-1" class="r bs2 ci px4 py2 an-fx" aria-label="fewer seats">−</button>
+        <b class="t4 tn" data-watch="seats">3</b>
+        <button type="button" commandfor="root" command="--inc" value="seats" class="r bs2 ci px4 py2 an-fx" aria-label="more seats">+</button>
+      </p>
+      <div class="bs2 rp oh mt4" style="height:.8rem" data-bind="--pct:level" role="progressbar" aria-label="Level" aria-valuemin="0" aria-valuemax="100"><b class="bk hf ba rp an-grow"></b></div>
+    </div>
+  </section>
+
+  <section class="bs py10" id="how">
+    <div class="w5 mx px6">
+      <h2>Each section gets its own composition.</h2>
+      <div class="gr g8 m-c3 mt8">
+        <div class="sy3"><p class="t4 sb m0">One</p><p class="cm">Panel titles are paragraphs, not h3s, so the heading order stays clean.</p></div>
+        <div class="sy3"><p class="t4 sb m0">Two</p><p class="cm">Surfaces are a tone step (<code>bs</code> on <code>bg</code>), never a border.</p></div>
+        <div class="sy3"><p class="t4 sb m0">Three</p><p class="cm">Buttons get <code>an-fx</code>; nothing else on this page moves unless state says so.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w5 mx px6 py10" id="start">
+    <h2>Start.</h2>
+    <p class="mt4 cm w6">Generate this page's CSS, inline Minim, run the checker.</p>
+    <pre class="r bs p4 t1 mt6"><code>npx @labs_kai/sscss starter.html --write
+node minim-page/scripts/inline.mjs starter.html
+node minim-page/scripts/check.mjs starter.html --lighthouse</code></pre>
+  </section>
+
+</main>
+
+<footer class="w5 mx px6 py8 t1 cm"><p class="m0">© Your name</p></footer>
+
+<!-- Minim, inlined at the end of <body> (minim-page/scripts/inline.mjs fills this slot). -->
+<script><!--minim--></script>
+</body>
+</html>

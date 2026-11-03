@@ -1,0 +1,32 @@
+{
+    "name": "@labs_kai/sscss",
+    "version": "1.0.0",
+    "description": "sscss — super small css. A vocabulary of 1–3 letter utilities and a generator that ships only what the page uses. 300 B core, 0 B per unused class.",
+    "type": "module",
+    "bin": { "sscss": "./bin/sscss.mjs" },
+    "main": "./src/vocab.mjs",
+    "exports": {
+        ".": "./src/vocab.mjs",
+        "./motion": "./src/motion.mjs",
+        "./sscss.css": "./dist/sscss.css",
+        "./sscss.base.css": "./dist/sscss.base.css",
+        "./sscss.core.css": "./dist/sscss.core.css",
+        "./package.json": "./package.json"
+    },
+    "files": ["bin", "src", "dist", "skills"],
+    "scripts": {
+        "build": "node scripts/build.mjs",
+        "test": "npm run build && node --test test/sscss.test.mjs",
+        "test:browser": "node test/browser.test.mjs",
+        "size": "node scripts/build.mjs | head -3"
+    },
+    "repository": { "type": "git", "url": "git+https://github.com/hertonwork/sscss.git" },
+    "keywords": ["css", "utility", "tiny", "atomic", "no-build", "pagespeed", "minim"],
+    "author": "Herton Fontineli",
+    "license": "MPL-2.0",
+    "homepage": "https://hertonwork.github.io/sscss/",
+    "bugs": { "url": "https://github.com/hertonwork/sscss/issues" },
+    "engines": { "node": ">=20" },
+    "publishConfig": { "access": "public" },
+    "devDependencies": { "@labs_kai/minim": "^3.0.1" }
+}
