@@ -31,8 +31,8 @@ Measured the same way for everyone: latest source, same minifier, `gzip -9`, `br
 |---|---|---|---|
 | core (reset + tokens + dark mode) | 435 | 300 | 242 |
 | the site's page (74 utilities, generated) | 2,531 | 1,080 | 889 |
-| every utility | 6,179 | 2,102 | 1,739 |
-| every utility + responsive variants | 16,896 | 3,534 | 2,196 |
+| every utility | 6,187 | 2,106 | 1,742 |
+| every utility + responsive variants | 16,904 | 3,538 | 2,154 |
 <!-- /sizes -->
 
 The number that matters is the one for **your page**: the second row is the [site](https://hertonwork.github.io/sscss/)

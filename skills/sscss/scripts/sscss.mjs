@@ -23,7 +23,7 @@ export const motion = {
   // smooth color/background changes when tokens change (theme switches)
   'an-tone': { css: (s) => `${s}{transition:color .3s,background .3s,border-color .3s}`, doc: 'eased color changes' },
   // tune the View Transitions API used by data-each
-  'an-vt': { css: () => '', global: `::view-transition-group(*){animation-duration:.3s}`, doc: 'view transitions: .3s (data-each)' },
+  'an-vt': { css: (s) => `${s}{}`, global: `::view-transition-group(*){animation-duration:.3s}`, doc: 'view transitions: .3s (data-each)' },
 };
 
 // sscss — the vocabulary. Short class names → declarations.
