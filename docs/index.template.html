@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+  <meta name="theme-color" content="#1a7a37">
+  <title>sscss — super small css</title>
+  <meta name="description" content="sscss: a vocabulary of 1–3 letter CSS utilities and a generator that ships only what the page uses. 300 B core, 0 B per unused class, dark mode included. Reads the same backwards.">
+  <link rel="canonical" href="https://hertonwork.github.io/sscss/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a7a37'/%3E%3Ctext x='32' y='44' font-family='system-ui,sans-serif' font-weight='700' font-size='30' text-anchor='middle' fill='%23fff'%3Es%3C/text%3E%3C/svg%3E">
+
+  <!-- Everything this page needs is in this file: sscss's CSS generated for it (data-sscss), the full vocabulary for the
+       playground (data-sscss-full), the page's own few rules, and Minim for the live bits. One request. -->
+  <!--sscss-full-->
+  <style>
+    /* the page's own rules: what the vocabulary doesn't cover */
+    h1 { font-size: clamp(2.6rem, 6.6vw, 5.4rem); letter-spacing: -.035em; line-height: .95; margin: 0; text-wrap: balance; }
+    h2 { font-size: clamp(1.9rem, 3.6vw, 2.9rem); letter-spacing: -.025em; line-height: 1.02; margin: 0; text-wrap: balance; }
+    .kb { font-size: clamp(3rem, 5.5vw, 4.4rem); letter-spacing: -.04em; line-height: 1; }
+    .bar { height: .8rem; border-radius: 4px; width: calc(var(--w) * 1%); transform-origin: left; animation: ss-grow .9s cubic-bezier(.2, .8, .2, 1) both; }
+    .bars li:nth-child(2) .bar { animation-delay: .08s } .bars li:nth-child(3) .bar { animation-delay: .16s } .bars li:nth-child(4) .bar { animation-delay: .24s }
+    @keyframes ss-grow { from { transform: scaleX(0) } }
+    .bars li { display: grid; grid-template-columns: 6.5rem 1fr auto; gap: .6rem; align-items: center; }
+    input, textarea { font: inherit; color: var(--ink); background: var(--bg); border: 2px solid var(--sf2); border-radius: var(--r); padding: .55rem .75rem; width: 100%; }
+    input:focus, textarea:focus { border-color: var(--acc); outline: none; }
+    :focus-visible { outline: 3px solid var(--acc); outline-offset: 3px; }
+    button { font: inherit; font-weight: 600; cursor: pointer; }
+    pre { margin: 0; white-space: pre-wrap; overflow-wrap: anywhere; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: .92em; }
+    .box { min-height: 7rem; }
+    table { border-collapse: collapse; width: 100%; } td, th { text-align: left; padding: .35rem .6rem; vertical-align: top; } th { font-weight: 600; }
+    tr + tr td { border-top: 1px solid var(--sf2); }
+  </style>
+
+  <script type="application/json" data-state="app" data-root="root">
+    { "cls": "p6 r2 ba cw t4 b ctr an-fx", "label": "Hello from sscss", "spin": false, "level": 60 }
+  </script>
+</head>
+<body>
+
+<header class="w5 mx px6 py4 f ac g6">
+  <strong class="t4 tt x">sscss</strong>
+  <nav class="f ac g4 t1 md" aria-label="Site">
+    <a href="https://github.com/hertonwork/sscss" class="nu ci h-cm">GitHub</a>
+    <a href="https://www.npmjs.com/package/@labs_kai/sscss" class="nu ci h-cm">npm</a>
+    <a href="https://hertonwork.github.io/minim/" class="nu ci h-cm">Minim</a>
+    <a href="#use" class="r ba cw px4 py2 nu nw an-fx">Use it</a>
+  </nav>
+</header>
+
+<main id="root">
+
+  <section class="w5 mx px6 py10 gr g8 m-c2 ac">
+    <div>
+      <h1>Super small CSS.</h1>
+      <p class="mt6 t3 cm w6">A vocabulary of one-to-three-letter utilities and a generator that ships only the rules your page uses. 300 bytes of core, 0 bytes per class you don't use, dark mode included. <b class="ci">sscss</b> reads the same backwards.</p>
+      <p class="mt7 f fw g3"><a href="#use" class="r ba cw px5 py3 nu sb an-fx">Get started</a><a href="#try" class="r bs ci px5 py3 nu sb an-fx h-bs2">Try the playground</a></p>
+    </div>
+    <div class="r2 bs p6">
+      <p class="t1 sb cm m0">Minified + gzipped</p>
+      <p class="kb b ca mt2 mb1">300 B</p>
+      <p class="t1 cm m0 mb4">core: reset, tokens, dark mode — the only CSS every page carries</p>
+      <ol class="bars p0 m0 t1" style="list-style:none" aria-label="CSS frameworks by gzipped size">
+        <li class="ca b"><span class="rt">sscss core</span><i class="bar ba" style="--w: 2.3" aria-hidden="true"></i><b class="tn">300 B</b></li>
+        <li class="cm"><span class="rt">lit</span><i class="bar bs2" style="--w: 3.1" aria-hidden="true"></i><b class="tn">406 B</b></li>
+        <li class="cm"><span class="rt">this page*</span><i class="bar bs2" style="--w: __PAGE_W__" aria-hidden="true"></i><b class="tn">__PAGE_GZ__ B</b></li>
+        <li class="cm"><span class="rt">Tailwind v4*</span><i class="bar bs2" style="--w: 29.1" aria-hidden="true"></i><b class="tn">3,813 B</b></li>
+        <li class="cm"><span class="rt">tachyons</span><i class="bar bs2" style="--w: 100" aria-hidden="true"></i><b class="tn">13,110 B</b></li>
+      </ol>
+      <p class="t0 cm mt3 m0">*the CSS generated for this page's __PAGE_N__ utilities, and the same page translated class-for-class to Tailwind v4 (also generated for the page only, with <code>dark:</code> variants to match). Same minifier, same gzip, for everyone.</p>
+    </div>
+  </section>
+
+  <section class="bs py10" id="try">
+    <div class="w5 mx px6">
+      <h2>Type classes. Watch the box.</h2>
+      <p class="mt4 cm w6">This playground runs on <a href="https://hertonwork.github.io/minim/" class="ci">Minim</a>: the input writes <code>cls</code> into a JSON state tag and the box's <code>class</code> attribute follows it with <code>data-bind="class:cls"</code>. The whole vocabulary is on this page so anything you type works.</p>
+      <div class="gr g6 m-c2 mt8 ae">
+        <div>
+          <label class="bk sb mb2" for="cls">Classes</label>
+          <input id="cls" data-model="cls" spellcheck="false" autocomplete="off">
+          <label class="bk sb mt4 mb2" for="label">Text</label>
+          <input id="label" data-model="label">
+          <p class="f fw g2 mt4">
+            <button type="button" commandfor="root" command="--set" data-key="cls" value="p6 r2 ba cw t4 b ctr an-fx" class="r bs2 ci px3 py2 an-fx">button</button>
+            <button type="button" commandfor="root" command="--set" data-key="cls" value="p5 r2 bd bg ci t2 sy2" class="r bs2 ci px3 py2 an-fx">card</button>
+            <button type="button" commandfor="root" command="--set" data-key="cls" value="p3 rp bs2 ci t1 sb ib" class="r bs2 ci px3 py2 an-fx">pill</button>
+            <button type="button" commandfor="root" command="--set" data-key="cls" value="p6 r2 bs ci t6 b tt ctr an-spin" class="r bs2 ci px3 py2 an-fx">spin</button>
+            <button type="button" commandfor="root" command="--set" data-key="cls" value="p4 r0 bd2 ca t3 mono" class="r bs2 ci px3 py2 an-fx">mono</button>
+          </p>
+        </div>
+        <div>
+          <p class="t1 sb cm mb2 m0">Result</p>
+          <div class="box bg r2 p4 f ac jc" data-bind="--pct:level">
+            <div data-bind="class:cls" data-watch="label" class="p6 r2 ba cw t4 b ctr an-fx">Hello from sscss</div>
+          </div>
+          <p class="t1 cm mt3 m0">That is <code>&lt;div class=&quot;<span data-watch="cls">p6 r2 ba cw t4 b ctr an-fx</span>&quot;&gt;</code> and nothing else.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w5 mx px6 py10">
+    <h2>How it works.</h2>
+    <div class="gr g8 m-c3 mt8">
+      <div class="sy3">
+        <p class="t4 sb m0">1. Write short classes</p>
+        <p class="cm">Layout <code>f ac jb gr c3</code>, spacing <code>p4 mt6 g3</code> on a 0–10 scale, type <code>t0–t9 b sb tt</code>, color roles <code>ci cm bs ba</code>, shape <code>r rp bd</code>. Variants: <code>h-</code> hover, <code>m-</code> ≥768px, <code>l-</code> ≥1024px.</p>
+      </div>
+      <div class="sy3">
+        <p class="t4 sb m0">2. Generate only what you use</p>
+        <pre class="r bs p4 t1"><code>npx @labs_kai/sscss page.html --write</code></pre>
+        <p class="cm">One command reads the page, writes the rules it needs into <code>&lt;style data-sscss&gt;</code> in <code>&lt;head&gt;</code>, and tells you about any class it doesn't know. No build step, no stylesheet request, nothing to purge.</p>
+      </div>
+      <div class="sy3">
+        <p class="t4 sb m0">3. Add your own</p>
+        <p class="cm">Anything the vocabulary doesn't cover goes in the page's own <code>&lt;style&gt;</code>; the generator leaves it alone. Tokens live in <code>:root</code> — change six variables and the whole page, dark mode included, follows.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="bs py10" id="motion">
+    <div class="w5 mx px6 gr g8 m-c2 ac">
+      <div>
+        <h2>Motion, the basic package.</h2>
+        <p class="mt4 cm w6">Seven utilities, transform and opacity only, all off under <code>prefers-reduced-motion</code>: <code>an-in</code> for inserted elements, <code>an-rise</code> scroll entrance, <code>an-spin</code>, <code>an-grow</code> for meters, <code>an-fx</code> button feedback, <code>an-tone</code> for theme changes, <code>an-vt</code> to tune view transitions. They exist because a Minim page needed exactly these.</p>
+        <p class="f fw g2 mt6">
+          <button type="button" commandfor="root" command="--toggle" value="spin" class="r bs2 ci px4 py2 an-fx">toggle spin</button>
+          <button type="button" commandfor="root" command="--inc" value="level" data-step="20" class="r bs2 ci px4 py2 an-fx">level +20</button>
+          <button type="button" commandfor="root" command="--inc" value="level" data-step="-20" class="r bs2 ci px4 py2 an-fx">level −20</button>
+        </p>
+      </div>
+      <div class="r2 bg p6">
+        <p class="t7 b tt ca m0 ib" data-class="an-spin:spin">sscss</p>
+        <p class="t1 cm mt4 mb2 m0">level <b data-watch="level">60</b>%</p>
+        <div class="bs2 rp oh" style="height:1.2rem" data-bind="--pct:level" role="progressbar" aria-label="Level" aria-valuemin="0" aria-valuemax="100"><b class="bk hf ba rp an-grow"></b></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="w5 mx px6 py10" id="use">
+    <h2>Use it.</h2>
+    <div class="gr g8 m-c2 mt8">
+      <div class="sy4">
+        <p class="t4 sb m0">Generate (recommended)</p>
+        <pre class="r bs p4 t1"><code>npm i -D @labs_kai/sscss
+npx sscss page.html --write     # inline only what the page uses
+npx sscss page.html --check     # exit 1 on unknown classes
+npx sscss --list                # the cheat sheet</code></pre>
+        <p class="cm">Pair it with <a href="https://hertonwork.github.io/minim/" class="ci">Minim</a> for state and events: Minim lite and the sscss core are 1.6 KB together, inlined, and the page makes one request.</p>
+      </div>
+      <div class="sy4">
+        <p class="t4 sb m0">Or just load it</p>
+        <pre class="r bs p4 t1"><code>&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@labs_kai/sscss@1/dist/sscss.base.css"&gt;</code></pre>
+        <p class="cm">Every utility, 2.1 KB gzipped (3.6 KB with the responsive variants, <code>sscss.css</code>); <code>sscss.core.css</code> is the 300 B reset + tokens on its own. Still smaller than this one page in Tailwind.</p>
+      </div>
+    </div>
+    <p class="mt8 cm">Agents: the repository ships a skill — <code>npx skills add hertonwork/sscss</code> — with the vocabulary, the rules, and the checks.</p>
+  </section>
+
+</main>
+
+<footer class="w5 mx px6 py8 t1 cm">
+  <p class="m0">MPL-2.0. sscss is a palindrome. Made in Florida by <a href="https://github.com/hertonwork" class="cm">Herton</a>. <a href="https://github.com/hertonwork/sscss/blob/main/index.html" class="cm">Source of this page</a>.</p>
+</footer>
+
+<!-- Minim lite, inlined at the end of <body>: binds before first paint. -->
+<script><!--minim--></script>
+</body>
+</html>
