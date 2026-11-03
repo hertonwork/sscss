@@ -80,7 +80,7 @@ test('dist: the three stylesheets are what the API returns, within budget', asyn
 test('cli: generates, --write inlines idempotently, page-own classes are not unknown, --check fails on real unknowns', async () => {
   const dir = await mkdtemp(path.join(tmpdir(), 'sscss-'));
   const page = path.join(dir, 'page.html');
-  const src = `<!DOCTYPE html><html><head><title>t</title><style>.hero{font-size:3rem}</style></head>
+  const src = `<!DOCTYPE html><html><head><title>t</title><!-- a comment that mentions <style data-sscss> and <style> --><style>.hero{font-size:3rem}</style></head>
 <body><div class="f ac m-c2 hero"><p class="p4" data-class="an-spin:busy">hi</p><code>class="not-a-class"</code></div></body></html>`;
   await writeFile(page, src);
   const { stdout, stderr } = await run('node', [bin, page]);
@@ -90,6 +90,7 @@ test('cli: generates, --write inlines idempotently, page-own classes are not unk
   await run('node', [bin, page, '--write']);
   const once = await readFile(page, 'utf8');
   assert.match(once, /<style data-sscss>[^<]+<\/style>\n<\/head>/);
+  assert.match(once, /<style>\.hero\{font-size:3rem\}<\/style>/, 'the page-own style survives a comment that mentions the tag');
   await run('node', [bin, page, '--write']);
   assert.equal(await readFile(page, 'utf8'), once, 'second --write changes nothing');
   await writeFile(page, src.replace('class="f ac', 'class="f ac zz'));

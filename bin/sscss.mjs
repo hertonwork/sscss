@@ -35,7 +35,7 @@ let html = await readFile(file, 'utf8');
 const used = classesIn(html);
 // classes the page styles itself (any <style> that isn't ours) are its own, not unknown
 const own = new Set();
-for (const s of html.matchAll(/<style(?![^>]*data-sscss)[^>]*>([\s\S]*?)<\/style>/g))
+for (const s of html.replace(/<!--[\s\S]*?-->/g, '').matchAll(/<style(?![^>]*data-sscss)[^>]*>([\s\S]*?)<\/style>/g))
   for (const m of s[1].matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)) own.add(m[1]);
 
 const { css, unknown: notVocab } = cssFor([...used]);
@@ -46,8 +46,8 @@ if (flag('--check') && unknown.length) process.exit(1);
 
 if (flag('--write')) {
   const tag = `<style data-sscss>${css}</style>`;
-  html = /<style data-sscss>[\s\S]*?<\/style>/.test(html)
-    ? html.replace(/<style data-sscss>[\s\S]*?<\/style>/, () => tag)
+  html = /<style data-sscss>[^<]*<\/style>/.test(html)   // our block holds no "<", so a comment that mentions the tag can't be mistaken for it
+    ? html.replace(/<style data-sscss>[^<]*<\/style>/, () => tag)
     : html.replace(/<\/head>/i, () => `  ${tag}\n</head>`);
   await writeFile(file, html);
   console.error(`  inlined into ${file}`);
