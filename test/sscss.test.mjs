@@ -49,8 +49,8 @@ test('variants: h- adds :hover, m-/l- wrap in media queries, grouped once each',
   assert.equal(variants.m.doc, 'at ≥ 768px');
 });
 
-test('classesIn: tags only, no <style>/<script>, no data-class, no text', () => {
-  assert.deepEqual([...classesIn('<style>.a{}</style><p class="f ac" data-class="x:y">class="t"</p><script>"class=\"z\""</script>')], ['f', 'ac']);
+test('classesIn: tags only, no <style>/<script>, no text; data-class toggles count as used', () => {
+  assert.deepEqual([...classesIn('<style>.a{}</style><p class="f ac" data-class="an-spin:busy done:$.done">class="t"</p><script>"class=\\"z\\""</script>')], ['f', 'ac', 'an-spin', 'done']);
 });
 
 test('generator: only used rules, sorted, deduplicated, unknown reported, core optional', () => {
@@ -84,9 +84,9 @@ test('cli: generates, --write inlines idempotently, page-own classes are not unk
 <body><div class="f ac m-c2 hero"><p class="p4" data-class="an-spin:busy">hi</p><code>class="not-a-class"</code></div></body></html>`;
   await writeFile(page, src);
   const { stdout, stderr } = await run('node', [bin, page]);
-  assert.match(stderr, /5 classes, 4 from the vocabulary, 1 the page's own/);
+  assert.match(stderr, /6 classes, 5 from the vocabulary, 1 the page's own/);
   assert.doesNotMatch(stderr, /not in the vocabulary/);
-  assert.ok(stdout.startsWith(core) && stdout.includes('.m-c2{') && !stdout.includes('an-spin'), 'data-class is not class, text is not markup');
+  assert.ok(stdout.startsWith(core) && stdout.includes('.m-c2{') && stdout.includes('.an-spin{') && !stdout.includes('not-a-class'), 'data-class toggles are generated, text is not markup');
   await run('node', [bin, page, '--write']);
   const once = await readFile(page, 'utf8');
   assert.match(once, /<style data-sscss>[^<]+<\/style>\n<\/head>/);
