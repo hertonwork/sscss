@@ -8,6 +8,15 @@
   <title>sscss — super small css</title>
   <meta name="description" content="sscss: a vocabulary of 1–3 letter CSS utilities and a generator that ships only what the page uses. 300 B core, 0 B per unused class, dark mode included. Reads the same backwards.">
   <link rel="canonical" href="https://hertonwork.github.io/sscss/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="sscss — super small css">
+  <meta property="og:description" content="1–3 letter utility classes and a generator that ships only what the page uses. 300 B core, about 1 KB for a whole page, dark mode included.">
+  <meta property="og:url" content="https://hertonwork.github.io/sscss/">
+  <meta property="og:image" content="https://hertonwork.github.io/sscss/docs/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"sscss","alternateName":"super small css","description":"A vocabulary of 1–3 letter CSS utilities and a generator that ships only the rules a page uses.","codeRepository":"https://github.com/hertonwork/sscss","url":"https://hertonwork.github.io/sscss/","programmingLanguage":"CSS","runtimePlatform":"Node.js","license":"https://www.mozilla.org/MPL/2.0/","author":{"@type":"Person","name":"Herton","url":"https://github.com/hertonwork"}}</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a7a37'/%3E%3Ctext x='32' y='44' font-family='system-ui,sans-serif' font-weight='700' font-size='30' text-anchor='middle' fill='%23fff'%3Es%3C/text%3E%3C/svg%3E">
 
   <!-- Everything this page needs is in this file: sscss's CSS generated for it (data-sscss), the full vocabulary for the
@@ -31,6 +40,12 @@
     .box { min-height: 7rem; }
     table { border-collapse: collapse; width: 100%; } td, th { text-align: left; padding: .35rem .6rem; vertical-align: top; } th { font-weight: 600; }
     tr + tr td { border-top: 1px solid var(--sf2); }
+    #sheet td:first-child { white-space: nowrap; width: 9rem; }
+    #sheet .grp:not(:has(tr:not([hidden]))) { display: none; }
+    .side pre { min-height: 100%; }
+    /* the hero's flow field: a WebGL canvas (docs/flow.js, inlined); nothing shows until it is ready */
+    .flow { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: opacity 1.6s; }
+    .flow.on { opacity: 1; }
   </style>
 
   <script type="application/json" data-state="app" data-root="root">
@@ -51,24 +66,27 @@
 
 <main id="root">
 
-  <section class="w5 mx px6 py10 gr g8 m-c2 ac">
-    <div>
-      <h1>Super small CSS.</h1>
-      <p class="mt6 t3 cm w6">A vocabulary of one-to-three-letter utilities and a generator that ships only the rules your page uses. 300 bytes of core, 0 bytes per class you don't use, dark mode included. <b class="ci">sscss</b> reads the same backwards.</p>
-      <p class="mt7 f fw g3"><a href="#use" class="r ba cw px5 py3 nu sb an-fx">Get started</a><a href="#try" class="r bs ci px5 py3 nu sb an-fx h-bs2">Try the playground</a></p>
-    </div>
-    <div class="r2 bs p6">
-      <p class="t1 sb cm m0">Minified + gzipped</p>
-      <p class="kb b ca mt2 mb1">300 B</p>
-      <p class="t1 cm m0 mb4">core: reset, tokens, dark mode — the only CSS every page carries</p>
-      <ol class="bars p0 m0 t1" style="list-style:none" aria-label="CSS frameworks by gzipped size">
-        <li class="ca b"><span class="rt">sscss core</span><i class="bar ba" style="--w: 2.3" aria-hidden="true"></i><b class="tn">300 B</b></li>
-        <li class="cm"><span class="rt">lit</span><i class="bar bs2" style="--w: 3.1" aria-hidden="true"></i><b class="tn">406 B</b></li>
-        <li class="cm"><span class="rt">this page*</span><i class="bar bs2" style="--w: __PAGE_W__" aria-hidden="true"></i><b class="tn">__PAGE_GZ__ B</b></li>
-        <li class="cm"><span class="rt">Tailwind v4*</span><i class="bar bs2" style="--w: 29.1" aria-hidden="true"></i><b class="tn">3,813 B</b></li>
-        <li class="cm"><span class="rt">tachyons</span><i class="bar bs2" style="--w: 100" aria-hidden="true"></i><b class="tn">13,110 B</b></li>
-      </ol>
-      <p class="t0 cm mt3 m0">*the CSS generated for this page's __PAGE_N__ utilities, and the same page translated class-for-class to Tailwind v4 (also generated for the page only, with <code>dark:</code> variants to match). Same minifier, same gzip, for everyone.</p>
+  <section class="rel oh">
+    <canvas class="flow" aria-hidden="true"></canvas>
+    <div class="w5 mx px6 py10 gr g8 m-c2 ac rel">
+      <div>
+        <h1>Super small CSS.</h1>
+        <p class="mt6 t3 cm w6">A vocabulary of one-to-three-letter utilities and a generator that ships only the rules your page uses. 300 bytes of core, 0 bytes per class you don't use, dark mode included. <b class="ci">sscss</b> reads the same backwards.</p>
+        <p class="mt7 f fw g3"><a href="#use" class="r ba cw px5 py3 nu sb an-fx">Get started</a><a href="#try" class="r bs ci px5 py3 nu sb an-fx h-bs2">Try the playground</a></p>
+      </div>
+      <div class="r2 bs p6">
+        <p class="t1 sb cm m0">Minified + gzipped</p>
+        <p class="kb b ca mt2 mb1">300 B</p>
+        <p class="t1 cm m0 mb4">core: reset, tokens, dark mode — the only CSS every page carries</p>
+        <ol class="bars p0 m0 t1" style="list-style:none" aria-label="CSS frameworks by gzipped size">
+          <li class="ca b"><span class="rt">sscss core</span><i class="bar ba" style="--w: 2.3" aria-hidden="true"></i><b class="tn">300 B</b></li>
+          <li class="cm"><span class="rt">lit</span><i class="bar bs2" style="--w: 3.1" aria-hidden="true"></i><b class="tn">406 B</b></li>
+          <li class="cm"><span class="rt">this page*</span><i class="bar bs2" style="--w: __PAGE_W__" aria-hidden="true"></i><b class="tn">__PAGE_GZ__ B</b></li>
+          <li class="cm"><span class="rt">Tailwind v4*</span><i class="bar bs2" style="--w: __TW_W__" aria-hidden="true"></i><b class="tn">__TW_GZ__ B</b></li>
+          <li class="cm"><span class="rt">tachyons</span><i class="bar bs2" style="--w: 100" aria-hidden="true"></i><b class="tn">13,110 B</b></li>
+        </ol>
+        <p class="t0 cm mt3 m0">*the CSS generated for this page's __PAGE_N__ utilities, and the same page translated class-for-class to Tailwind v4 (generated for the page only, <code>dark:</code> variants to match). Same minifier, same gzip, for everyone.</p>
+      </div>
     </div>
   </section>
 
@@ -120,11 +138,26 @@
     </div>
   </section>
 
+  <section class="w5 mx px6 py10" id="vs">
+    <h2>Same component, both ways.</h2>
+    <p class="mt4 cm w6">The hero card of this page, written in Tailwind classes and in sscss. Same rendering, same dark mode. The class attributes are __TW_CLS__ bytes and __SS_CLS__ bytes — and the HTML is only the half of it: the CSS generated for this whole page is __TW_GZ__ B gzipped in Tailwind v4, __PAGE_GZ__ B in sscss.</p>
+    <div class="gr g6 m-c2 mt8 side">
+      <div>
+        <p class="t1 sb cm mb2 m0">Tailwind v4 · __TW_B__ B of markup</p>
+        <pre class="r bs p4 t0"><code>__TW_HTML__</code></pre>
+      </div>
+      <div>
+        <p class="t1 sb ca mb2 m0">sscss · __SS_B__ B of markup</p>
+        <pre class="r bs p4 t0"><code>__SS_HTML__</code></pre>
+      </div>
+    </div>
+  </section>
+
   <section class="bs py10" id="motion">
     <div class="w5 mx px6 gr g8 m-c2 ac">
       <div>
         <h2>Motion, the basic package.</h2>
-        <p class="mt4 cm w6">Seven utilities, transform and opacity only, all off under <code>prefers-reduced-motion</code>: <code>an-in</code> for inserted elements, <code>an-rise</code> scroll entrance, <code>an-spin</code>, <code>an-grow</code> for meters, <code>an-fx</code> button feedback, <code>an-tone</code> for theme changes, <code>an-vt</code> to tune view transitions. They exist because a Minim page needed exactly these.</p>
+        <p class="mt4 cm w6">Eight utilities, transform and opacity only, all off under <code>prefers-reduced-motion</code>: <code>an-in</code> for inserted elements, <code>an-rise</code> scroll entrance, <code>an-spin</code>, <code>an-grow</code> for meters, <code>an-fx</code> button feedback, <code>an-tone</code> for theme changes, <code>an-vt</code> to tune view transitions — and <code>an-sea</code>, a CSS ocean for a hero, cut from one tiny SVG tile and colored by the tokens. They exist because a Minim page needed exactly these.</p>
         <p class="f fw g2 mt6">
           <button type="button" commandfor="root" command="--toggle" value="spin" class="r bs2 ci px4 py2 an-fx">toggle spin</button>
           <button type="button" commandfor="root" command="--inc" value="level" data-step="20" class="r bs2 ci px4 py2 an-fx">level +20</button>
@@ -137,6 +170,23 @@
         <div class="bs2 rp oh" style="height:1.2rem" data-bind="--pct:level" role="progressbar" aria-label="Level" aria-valuemin="0" aria-valuemax="100"><b class="bk hf ba rp an-grow"></b></div>
       </div>
     </div>
+  </section>
+
+  <section class="w5 mx px6 py10" id="sheet">
+    <div class="gr g6 m-c2 ae">
+      <div>
+        <h2>The whole vocabulary.</h2>
+        <p class="mt4 cm w6">__N__ utilities, one line each. Scales are written once: <code>p4</code> is padding 1rem, <code>mt6</code> margin-top 2rem, <code>t3</code> 1.125rem. Prefix any of them with <code>h-</code>, <code>m-</code> or <code>l-</code>.</p>
+      </div>
+      <div>
+        <label class="bk sb mb2" for="q">Filter</label>
+        <input id="q" placeholder="flex, padding, rp, dark…" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+    <div class="gr g6 m-c2 l-c3 mt8">
+__CHEATSHEET__
+    </div>
+    <p id="none" class="cm mt4">Nothing matches — it probably belongs in the page's own <code>&lt;style&gt;</code>.</p>
   </section>
 
   <section class="w5 mx px6 py10" id="use">
@@ -165,7 +215,15 @@ npx sscss --list                # the cheat sheet</code></pre>
   <p class="m0">MPL-2.0. sscss is a palindrome. Made in Florida by <a href="https://github.com/hertonwork" class="cm">Herton</a>. <a href="https://github.com/hertonwork/sscss/blob/main/index.html" class="cm">Source of this page</a>.</p>
 </footer>
 
-<!-- Minim lite, inlined at the end of <body>: binds before first paint. -->
+<!-- Minim, inlined at the end of <body>: binds before first paint. -->
 <script><!--minim--></script>
+<!-- The hero's flow field (docs/flow.js, inlined and minified): starts after load, when the browser is idle. -->
+<script><!--flow--></script>
+<!-- The cheat-sheet filter: three lines, the page's only script of its own. Groups with no visible row hide via :has(). -->
+<script>
+  const q = document.getElementById('q'), rows = [...document.querySelectorAll('#sheet tr[data-k]')];
+  q.oninput = () => { const v = q.value.trim().toLowerCase(); for (const r of rows) r.hidden = !!v && !r.dataset.k.includes(v); document.getElementById("none").hidden = !v || rows.some((r) => !r.hidden); };
+  document.getElementById("none").hidden = true;
+</script>
 </body>
 </html>

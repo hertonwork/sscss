@@ -54,6 +54,7 @@
         "access": "public"
     },
     "devDependencies": {
-        "@labs_kai/minim": "^3.0.1"
+        "@labs_kai/minim": "^3.0.1",
+        "esbuild": "^0.28.2"
     }
 }

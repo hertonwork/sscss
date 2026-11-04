@@ -35,14 +35,59 @@ const tpl = path.join(root, 'docs/index.template.html'), out = path.join(root, '
 let html = await readFile(tpl, 'utf8');
 const minim = await readFile(path.join(root, 'node_modules/@labs_kai/minim/dist/minim.min.js'), 'utf8');
 html = html.replace('<!--minim-->', () => minim.trim());
+// the hero's flow field, minified with esbuild when it is installed (a devDependency), raw otherwise
+let flow = await readFile(path.join(root, 'docs/flow.js'), 'utf8');
+try { const { transform } = await import('esbuild'); flow = (await transform(flow, { minify: true, target: 'es2022' })).code; } catch { console.warn('esbuild not installed: inlining docs/flow.js unminified'); }
+if (flow.includes('</script')) throw new Error('flow.js contains </script and cannot be inlined');
+html = html.replace('<!--flow-->', () => flow.trim());
 const used = classesIn(html);
 const pageCss = cssFor([...used]).css;
 let extra = cssFor(Object.keys(vocab).filter((n) => !used.has(n)), { withCore: false }).css;
 for (const g of [...extra.matchAll(/@keyframes[^{]+\{[^}]*\}\}?|@media\(prefers-reduced-motion[\s\S]+?\}\}|::view-transition-group[^}]*\}/g)].map((m) => m[0]))
   if (pageCss.includes(g)) extra = extra.replace(g, '');
 html = html.replace('<!--sscss-full-->', () => `<style data-sscss-full>${extra}</style>`);
-// the hero chart's "this page" row: real numbers from the generator, not a claim
+// the cheat sheet on the page: scale families (p0–p10, t0–t9, w0–w6, c1–c6) collapse to one row each
+const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+const fam = { p: 'padding', px: 'padding left+right', py: 'padding top+bottom', pt: 'padding top', pb: 'padding bottom', m: 'margin', mt: 'margin top', mb: 'margin bottom', my: 'margin top+bottom', g: 'gap', sy: 'space between children' };
+const scaleDoc = scale.map((v) => (v + 'rem').replace('0rem', '0')).join(' ');
+const sheetHtml = Object.entries(groups).map(([group, items]) => {
+  const rows = [], seen = new Set();
+  for (const [name, , doc] of items) {
+    let m;
+    if ((m = name.match(/^(p|px|py|pt|pb|m|mt|mb|my|g|sy)(\d+)$/))) { if (!seen.has(m[1])) { seen.add(m[1]); rows.push([`${m[1]}0–${m[1]}10`, fam[m[1]]]); } continue; }
+    if ((m = name.match(/^t(\d)$/))) { if (!seen.has('t')) { seen.add('t'); rows.push(['t0–t9', `font-size ${type.join(' ')} rem`]); } continue; }
+    if ((m = name.match(/^w(\d)$/))) { if (!seen.has('w')) { seen.add('w'); rows.push(['w0–w6', `max-width ${widths.join(' ')}`]); } continue; }
+    if ((m = name.match(/^c(\d)$/))) { if (!seen.has('c')) { seen.add('c'); rows.push(['c1–c6', 'equal grid columns']); } continue; }
+    rows.push([name, doc]);
+  }
+  const title = group.replace(' (sscss/motion)', '');
+  const note = group === 'Spacing' ? ` <span class="cm md t1">0–10 = ${esc(scaleDoc)}</span>` : '';
+  return `      <div class="grp"><p class="t2 sb mb2">${esc(title)}${note}</p><table>\n` +
+    rows.map(([n, d]) => `        <tr data-k="${esc((n + ' ' + d).toLowerCase())}"><td><code>${esc(n)}</code></td><td class="cm">${esc(d)}</td></tr>`).join('\n') + `\n      </table></div>`;
+}).join('\n');
+html = html.replace('__CHEATSHEET__', () => sheetHtml).replaceAll('__N__', String(Object.keys(vocab).length));
+
+// the "same component, both ways" block: the hero card in Tailwind classes and in sscss, with real byte counts
+const ssHtml = `<div class="r2 bs p6">
+  <p class="t1 sb cm">Minified + gzipped</p>
+  <p class="kb b ca">300 B</p>
+  <a class="r ba cw px5 py3 sb nu ib an-fx" href="#use">Get started</a>
+</div>`;
+const twHtml = `<div class="rounded-2xl bg-gray-100 dark:bg-gray-900 p-8">
+  <p class="text-sm font-semibold text-gray-600 dark:text-gray-400">Minified + gzipped</p>
+  <p class="kb font-bold text-green-700 dark:text-green-400">300 B</p>
+  <a class="rounded-lg bg-green-700 dark:bg-green-600 text-white px-6 py-3 font-semibold no-underline inline-block transition active:scale-[.97]" href="#use">Get started</a>
+</div>`;
+const clsBytes = (h) => [...h.matchAll(/class="([^"]*)"/g)].reduce((n, m) => n + Buffer.byteLength(m[1]), 0);
+html = html.replaceAll('__TW_HTML__', () => esc(twHtml)).replaceAll('__SS_HTML__', () => esc(ssHtml))
+  .replaceAll('__TW_B__', Buffer.byteLength(twHtml).toLocaleString('en-US')).replaceAll('__SS_B__', Buffer.byteLength(ssHtml).toLocaleString('en-US'))
+  .replaceAll('__TW_CLS__', String(clsBytes(twHtml))).replaceAll('__SS_CLS__', String(clsBytes(ssHtml)));
+
+// the hero chart's "this page" row: real numbers from the generator, not a claim. The Tailwind row is measured by hand
+// with scripts/tailwind-equivalent.mjs (Tailwind v4 CLI --minify, gzip -9). Re-measure when the page's classes change.
+const TW_GZ = 4019;   // 2026-11-04
 const pageN = [...used].filter((c) => ruleFor(c)).length, pageGz = gz(pageCss);
+html = html.replaceAll('__TW_GZ__', TW_GZ.toLocaleString('en-US')).replaceAll('__TW_W__', (TW_GZ / 13110 * 100).toFixed(1));
 readme = readme.replace(/<!-- sizes -->[\s\S]*<!-- \/sizes -->/, () =>
   `<!-- sizes -->\n| | bytes | gzip | brotli |\n|---|---|---|---|\n` +
   [['core (reset + tokens + dark mode)', core], [`the site's page (${pageN} utilities, generated)`, pageCss], ['every utility', base], ['every utility + responsive variants', full]]
@@ -52,7 +97,7 @@ html = html.replaceAll('__PAGE_N__', String(pageN)).replaceAll('__PAGE_GZ__', pa
 await writeFile(out, html);
 execFileSync('node', [path.join(root, 'bin/sscss.mjs'), out, '--write'], { stdio: 'inherit' });
 const page = await readFile(out, 'utf8');
-console.log(`index.html  ${fmt(page)}  (playground extra ${gz(extra)} B gzip, Minim ${gz(minim)} B gzip)`);
+console.log(`index.html  ${fmt(page)}  (playground extra ${gz(extra)} B gzip, Minim ${gz(minim)} B gzip, flow ${gz(flow)} B gzip)`);
 
 // 4. the skill: a self-contained generator (motion + vocab + cli in one file), the cheat sheet, the full stylesheet
 const skill = path.join(root, 'skills/sscss');

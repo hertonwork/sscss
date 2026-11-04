@@ -8,11 +8,20 @@
   <title>sscss — super small css</title>
   <meta name="description" content="sscss: a vocabulary of 1–3 letter CSS utilities and a generator that ships only what the page uses. 300 B core, 0 B per unused class, dark mode included. Reads the same backwards.">
   <link rel="canonical" href="https://hertonwork.github.io/sscss/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="sscss — super small css">
+  <meta property="og:description" content="1–3 letter utility classes and a generator that ships only what the page uses. 300 B core, about 1 KB for a whole page, dark mode included.">
+  <meta property="og:url" content="https://hertonwork.github.io/sscss/">
+  <meta property="og:image" content="https://hertonwork.github.io/sscss/docs/og.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareSourceCode","name":"sscss","alternateName":"super small css","description":"A vocabulary of 1–3 letter CSS utilities and a generator that ships only the rules a page uses.","codeRepository":"https://github.com/hertonwork/sscss","url":"https://hertonwork.github.io/sscss/","programmingLanguage":"CSS","runtimePlatform":"Node.js","license":"https://www.mozilla.org/MPL/2.0/","author":{"@type":"Person","name":"Herton","url":"https://github.com/hertonwork"}}</script>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a7a37'/%3E%3Ctext x='32' y='44' font-family='system-ui,sans-serif' font-weight='700' font-size='30' text-anchor='middle' fill='%23fff'%3Es%3C/text%3E%3C/svg%3E">
 
   <!-- Everything this page needs is in this file: sscss's CSS generated for it (data-sscss), the full vocabulary for the
        playground (data-sscss-full), the page's own few rules, and Minim for the live bits. One request. -->
-  <style data-sscss-full>.abs{position:absolute}.an-in{transition:opacity .35s,translate .35s;@starting-style{opacity:0;translate:0 -8px}}@supports(animation-timeline:view()){.an-rise{animation:ss-rise linear both;animation-timeline:view();animation-range:entry 0% entry 22%}}.an-spin{animation:ss-spin 1.4s cubic-bezier(.65,0,.35,1) infinite}.an-tone{transition:color .3s,background .3s,border-color .3s}.an-vt{}.bal{text-wrap:balance}.bd{border:1px solid var(--sf2)}.bd2{border:2px solid var(--acc)}.c1{grid-template-columns:repeat(1,minmax(0,1fr))}.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}.c5{grid-template-columns:repeat(5,minmax(0,1fr))}.c6{grid-template-columns:repeat(6,minmax(0,1fr))}.cp{cursor:pointer}.fc{display:flex;flex-direction:column}.fr{flex-direction:row}.fs0{flex-shrink:0}.g0{gap:0}.g1{gap:0.25rem}.g10{gap:8rem}.g5{gap:1.5rem}.g7{gap:3rem}.g9{gap:6rem}.hd{display:none}.jb{justify-content:space-between}.je{justify-content:end}.lt{line-height:1.2}.m1{margin:0.25rem}.m10{margin:8rem}.m2{margin:0.5rem}.m3{margin:0.75rem}.m4{margin:1rem}.m5{margin:1.5rem}.m6{margin:2rem}.m7{margin:3rem}.m8{margin:4rem}.m9{margin:6rem}.mb0{margin-bottom:0}.mb10{margin-bottom:8rem}.mb3{margin-bottom:0.75rem}.mb5{margin-bottom:1.5rem}.mb6{margin-bottom:2rem}.mb7{margin-bottom:3rem}.mb8{margin-bottom:4rem}.mb9{margin-bottom:6rem}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.mt0{margin-top:0}.mt1{margin-top:0.25rem}.mt10{margin-top:8rem}.mt5{margin-top:1.5rem}.mt9{margin-top:6rem}.my0{margin-block:0}.my1{margin-block:0.25rem}.my10{margin-block:8rem}.my2{margin-block:0.5rem}.my3{margin-block:0.75rem}.my4{margin-block:1rem}.my5{margin-block:1.5rem}.my6{margin-block:2rem}.my7{margin-block:3rem}.my8{margin-block:4rem}.my9{margin-block:6rem}.op{opacity:.6}.ov{overflow:auto}.p1{padding:0.25rem}.p10{padding:8rem}.p2{padding:0.5rem}.p3{padding:0.75rem}.p5{padding:1.5rem}.p7{padding:3rem}.p8{padding:4rem}.p9{padding:6rem}.pb0{padding-bottom:0}.pb1{padding-bottom:0.25rem}.pb10{padding-bottom:8rem}.pb2{padding-bottom:0.5rem}.pb3{padding-bottom:0.75rem}.pb4{padding-bottom:1rem}.pb5{padding-bottom:1.5rem}.pb6{padding-bottom:2rem}.pb7{padding-bottom:3rem}.pb8{padding-bottom:4rem}.pb9{padding-bottom:6rem}.pc{place-items:center}.pt0{padding-top:0}.pt1{padding-top:0.25rem}.pt10{padding-top:8rem}.pt2{padding-top:0.5rem}.pt3{padding-top:0.75rem}.pt4{padding-top:1rem}.pt5{padding-top:1.5rem}.pt6{padding-top:2rem}.pt7{padding-top:3rem}.pt8{padding-top:4rem}.pt9{padding-top:6rem}.px0{padding-inline:0}.px1{padding-inline:0.25rem}.px10{padding-inline:8rem}.px2{padding-inline:0.5rem}.px7{padding-inline:3rem}.px8{padding-inline:4rem}.px9{padding-inline:6rem}.py0{padding-block:0}.py1{padding-block:0.25rem}.py5{padding-block:1.5rem}.py6{padding-block:2rem}.py7{padding-block:3rem}.py9{padding-block:6rem}.r0{border-radius:0}.rel{position:relative}.sh{box-shadow:0 24px 60px rgb(0 0 0/.3)}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.stk{position:sticky;top:0}.sy0>*+*{margin-top:0}.sy1>*+*{margin-top:0.25rem}.sy10>*+*{margin-top:8rem}.sy2>*+*{margin-top:0.5rem}.sy5>*+*{margin-top:1.5rem}.sy6>*+*{margin-top:2rem}.sy7>*+*{margin-top:3rem}.sy8>*+*{margin-top:4rem}.sy9>*+*{margin-top:6rem}.t2{font-size:1rem;line-height:1.5}.t5{font-size:1.5rem;line-height:1.5}.t6{font-size:1.875rem;line-height:1.1}.t8{font-size:3rem;line-height:1.1}.t9{font-size:3.75rem;line-height:1.1}.tr{transition:.15s}.up{text-transform:uppercase}.vh{min-height:100vh}.w0{max-width:20rem}.w1{max-width:28rem}.w2{max-width:36rem}.w3{max-width:48rem}.w4{max-width:60rem}.wf{width:100%}@keyframes ss-rise{from{transform:translateY(24px)}}@keyframes ss-spin{to{transform:rotateY(1turn)}}::view-transition-group(*){animation-duration:.3s}</style>
+  <style data-sscss-full>.abs{position:absolute}.an-in{transition:opacity .35s,translate .35s;@starting-style{opacity:0;translate:0 -8px}}@supports(animation-timeline:view()){.an-rise{animation:ss-rise linear both;animation-timeline:view();animation-range:entry 0% entry 22%}}.an-sea{position:absolute;inset:auto 0 0 0;height:min(36%,200px);pointer-events:none;background:linear-gradient(transparent,color-mix(in srgb,var(--sea,var(--acc)) 10%,transparent))}.an-sea::before,.an-sea::after{content:"";position:absolute;inset:0 -480px 0 0;--w:-480px;background:color-mix(in srgb,var(--sea,var(--acc)) 20%,transparent);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 120' preserveAspectRatio='none'%3E%3Cpath d='M0 60C120 0 120 0 240 60S360 120 480 60V120H0z'/%3E%3C/svg%3E") repeat-x bottom/480px 72%;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 480 120' preserveAspectRatio='none'%3E%3Cpath d='M0 60C120 0 120 0 240 60S360 120 480 60V120H0z'/%3E%3C/svg%3E") repeat-x bottom/480px 72%;animation:ss-sea 24s linear infinite}.an-sea::after{top:40%;--w:-320px;background:color-mix(in srgb,var(--sea,var(--acc)) 32%,transparent);-webkit-mask-size:320px 100%;mask-size:320px 100%;animation-duration:12s;animation-direction:reverse}.an-tone{transition:color .3s,background .3s,border-color .3s}.an-vt{}.bal{text-wrap:balance}.bd{border:1px solid var(--sf2)}.bd2{border:2px solid var(--acc)}.c1{grid-template-columns:repeat(1,minmax(0,1fr))}.c2{grid-template-columns:repeat(2,minmax(0,1fr))}.c3{grid-template-columns:repeat(3,minmax(0,1fr))}.c4{grid-template-columns:repeat(4,minmax(0,1fr))}.c5{grid-template-columns:repeat(5,minmax(0,1fr))}.c6{grid-template-columns:repeat(6,minmax(0,1fr))}.cp{cursor:pointer}.fc{display:flex;flex-direction:column}.fr{flex-direction:row}.fs0{flex-shrink:0}.g0{gap:0}.g1{gap:0.25rem}.g10{gap:8rem}.g5{gap:1.5rem}.g7{gap:3rem}.g9{gap:6rem}.hd{display:none}.jb{justify-content:space-between}.je{justify-content:end}.lt{line-height:1.2}.m1{margin:0.25rem}.m10{margin:8rem}.m2{margin:0.5rem}.m3{margin:0.75rem}.m4{margin:1rem}.m5{margin:1.5rem}.m6{margin:2rem}.m7{margin:3rem}.m8{margin:4rem}.m9{margin:6rem}.mb0{margin-bottom:0}.mb10{margin-bottom:8rem}.mb3{margin-bottom:0.75rem}.mb5{margin-bottom:1.5rem}.mb6{margin-bottom:2rem}.mb7{margin-bottom:3rem}.mb8{margin-bottom:4rem}.mb9{margin-bottom:6rem}.mono{font-family:ui-monospace,SFMono-Regular,Menlo,monospace}.mt0{margin-top:0}.mt1{margin-top:0.25rem}.mt10{margin-top:8rem}.mt5{margin-top:1.5rem}.mt9{margin-top:6rem}.my0{margin-block:0}.my1{margin-block:0.25rem}.my10{margin-block:8rem}.my2{margin-block:0.5rem}.my3{margin-block:0.75rem}.my4{margin-block:1rem}.my5{margin-block:1.5rem}.my6{margin-block:2rem}.my7{margin-block:3rem}.my8{margin-block:4rem}.my9{margin-block:6rem}.op{opacity:.6}.ov{overflow:auto}.p1{padding:0.25rem}.p10{padding:8rem}.p2{padding:0.5rem}.p3{padding:0.75rem}.p5{padding:1.5rem}.p7{padding:3rem}.p8{padding:4rem}.p9{padding:6rem}.pb0{padding-bottom:0}.pb1{padding-bottom:0.25rem}.pb10{padding-bottom:8rem}.pb2{padding-bottom:0.5rem}.pb3{padding-bottom:0.75rem}.pb4{padding-bottom:1rem}.pb5{padding-bottom:1.5rem}.pb6{padding-bottom:2rem}.pb7{padding-bottom:3rem}.pb8{padding-bottom:4rem}.pb9{padding-bottom:6rem}.pc{place-items:center}.pt0{padding-top:0}.pt1{padding-top:0.25rem}.pt10{padding-top:8rem}.pt2{padding-top:0.5rem}.pt3{padding-top:0.75rem}.pt4{padding-top:1rem}.pt5{padding-top:1.5rem}.pt6{padding-top:2rem}.pt7{padding-top:3rem}.pt8{padding-top:4rem}.pt9{padding-top:6rem}.px0{padding-inline:0}.px1{padding-inline:0.25rem}.px10{padding-inline:8rem}.px2{padding-inline:0.5rem}.px7{padding-inline:3rem}.px8{padding-inline:4rem}.px9{padding-inline:6rem}.py0{padding-block:0}.py1{padding-block:0.25rem}.py5{padding-block:1.5rem}.py6{padding-block:2rem}.py7{padding-block:3rem}.py9{padding-block:6rem}.r0{border-radius:0}.sh{box-shadow:0 24px 60px rgb(0 0 0/.3)}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%)}.stk{position:sticky;top:0}.sy0>*+*{margin-top:0}.sy1>*+*{margin-top:0.25rem}.sy10>*+*{margin-top:8rem}.sy2>*+*{margin-top:0.5rem}.sy5>*+*{margin-top:1.5rem}.sy6>*+*{margin-top:2rem}.sy7>*+*{margin-top:3rem}.sy8>*+*{margin-top:4rem}.sy9>*+*{margin-top:6rem}.t2{font-size:1rem;line-height:1.5}.t5{font-size:1.5rem;line-height:1.5}.t6{font-size:1.875rem;line-height:1.1}.t8{font-size:3rem;line-height:1.1}.t9{font-size:3.75rem;line-height:1.1}.tr{transition:.15s}.up{text-transform:uppercase}.vh{min-height:100vh}.w0{max-width:20rem}.w1{max-width:28rem}.w2{max-width:36rem}.w3{max-width:48rem}.w4{max-width:60rem}.wf{width:100%}@keyframes ss-rise{from{transform:translateY(24px)}}@keyframes ss-sea{to{transform:translateX(var(--w))}}::view-transition-group(*){animation-duration:.3s}</style>
   <style>
     /* the page's own rules: what the vocabulary doesn't cover */
     h1 { font-size: clamp(2.6rem, 6.6vw, 5.4rem); letter-spacing: -.035em; line-height: .95; margin: 0; text-wrap: balance; }
@@ -31,12 +40,18 @@
     .box { min-height: 7rem; }
     table { border-collapse: collapse; width: 100%; } td, th { text-align: left; padding: .35rem .6rem; vertical-align: top; } th { font-weight: 600; }
     tr + tr td { border-top: 1px solid var(--sf2); }
+    #sheet td:first-child { white-space: nowrap; width: 9rem; }
+    #sheet .grp:not(:has(tr:not([hidden]))) { display: none; }
+    .side pre { min-height: 100%; }
+    /* the hero's flow field: a WebGL canvas (docs/flow.js, inlined); nothing shows until it is ready */
+    .flow { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; opacity: 0; transition: opacity 1.6s; }
+    .flow.on { opacity: 1; }
   </style>
 
   <script type="application/json" data-state="app" data-root="root">
     { "cls": "p6 r2 ba cw t4 b ctr an-fx", "label": "Hello from sscss", "spin": false, "level": 60 }
   </script>
-  <style data-sscss>*,::before,::after{box-sizing:border-box;border:0 solid}body{margin:0;font:16px/1.5 ui-sans-serif,system-ui,sans-serif;background:var(--bg);color:var(--ink)}img,svg{max-width:100%;height:auto}:root{--ink:#0b0f14;--mut:#4b5563;--bg:#fff;--sf:#f2f4f7;--sf2:#dfe3e9;--acc:#1a7a37;--acci:#fff;--r:8px}@media(prefers-color-scheme:dark){:root{--ink:#e6edf3;--mut:#9ca3af;--bg:#0d1117;--sf:#161b22;--sf2:#2a313b;--acc:#3fb950;--acci:#0d1117}}.ac{align-items:center}.ae{align-items:end}.an-fx{transition:background .15s,transform .12s,color .15s}.an-fx:active{transform:scale(.97)}.an-grow{width:calc(var(--pct,0)*1%);transition:width .45s cubic-bezier(.2,.8,.2,1)}.b{font-weight:700}.ba{background:var(--acc)}.bg{background:var(--bg)}.bk{display:block}.bs{background:var(--sf)}.bs2{background:var(--sf2)}.ca{color:var(--acc)}.ci{color:var(--ink)}.cm{color:var(--mut)}.ctr{text-align:center}.cw{color:var(--acci)}.f{display:flex}.fw{flex-wrap:wrap}.g2{gap:0.5rem}.g3{gap:0.75rem}.g4{gap:1rem}.g6{gap:2rem}.g8{gap:4rem}.gr{display:grid}.gr>*{min-width:0}.h-bs2:hover{background:var(--sf2)}.h-cm:hover{color:var(--mut)}.hf{height:100%}.ib{display:inline-block}.jc{justify-content:center}.m0{margin:0}.mb1{margin-bottom:0.25rem}.mb2{margin-bottom:0.5rem}.mb4{margin-bottom:1rem}.md{font-weight:500}.mt2{margin-top:0.5rem}.mt3{margin-top:0.75rem}.mt4{margin-top:1rem}.mt6{margin-top:2rem}.mt7{margin-top:3rem}.mt8{margin-top:4rem}.mx{margin-inline:auto}.nu{text-decoration:none}.nw{white-space:nowrap}.oh{overflow:hidden}.p0{padding:0}.p4{padding:1rem}.p6{padding:2rem}.px3{padding-inline:0.75rem}.px4{padding-inline:1rem}.px5{padding-inline:1.5rem}.px6{padding-inline:2rem}.py10{padding-block:8rem}.py2{padding-block:0.5rem}.py3{padding-block:0.75rem}.py4{padding-block:1rem}.py8{padding-block:4rem}.r{border-radius:var(--r)}.r2{border-radius:calc(var(--r)*2)}.rp{border-radius:999px}.rt{text-align:right}.sb{font-weight:600}.sy3>*+*{margin-top:0.75rem}.sy4>*+*{margin-top:1rem}.t0{font-size:0.75rem;line-height:1.5}.t1{font-size:0.875rem;line-height:1.5}.t3{font-size:1.125rem;line-height:1.5}.t4{font-size:1.25rem;line-height:1.5}.t7{font-size:2.25rem;line-height:1.1}.tn{font-variant-numeric:tabular-nums}.tt{letter-spacing:-.025em}.w5{max-width:72rem}.w6{max-width:65ch}.x{flex:1}@media(min-width:768px){.m-c2{grid-template-columns:repeat(2,minmax(0,1fr))}.m-c3{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(prefers-reduced-motion:reduce){*,::before,::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}</style>
+  <style data-sscss>*,::before,::after{box-sizing:border-box;border:0 solid}body{margin:0;font:16px/1.5 ui-sans-serif,system-ui,sans-serif;background:var(--bg);color:var(--ink)}img,svg{max-width:100%;height:auto}:root{--ink:#0b0f14;--mut:#4b5563;--bg:#fff;--sf:#f2f4f7;--sf2:#dfe3e9;--acc:#1a7a37;--acci:#fff;--r:8px}@media(prefers-color-scheme:dark){:root{--ink:#e6edf3;--mut:#9ca3af;--bg:#0d1117;--sf:#161b22;--sf2:#2a313b;--acc:#3fb950;--acci:#0d1117}}.ac{align-items:center}.ae{align-items:end}.an-fx{transition:background .15s,transform .12s,color .15s}.an-fx:active{transform:scale(.97)}.an-grow{width:calc(var(--pct,0)*1%);transition:width .45s cubic-bezier(.2,.8,.2,1)}.an-spin{animation:ss-spin 1.4s cubic-bezier(.65,0,.35,1) infinite}.b{font-weight:700}.ba{background:var(--acc)}.bg{background:var(--bg)}.bk{display:block}.bs{background:var(--sf)}.bs2{background:var(--sf2)}.ca{color:var(--acc)}.ci{color:var(--ink)}.cm{color:var(--mut)}.ctr{text-align:center}.cw{color:var(--acci)}.f{display:flex}.fw{flex-wrap:wrap}.g2{gap:0.5rem}.g3{gap:0.75rem}.g4{gap:1rem}.g6{gap:2rem}.g8{gap:4rem}.gr{display:grid}.gr>*{min-width:0}.h-bs2:hover{background:var(--sf2)}.h-cm:hover{color:var(--mut)}.hf{height:100%}.ib{display:inline-block}.jc{justify-content:center}.m0{margin:0}.mb1{margin-bottom:0.25rem}.mb2{margin-bottom:0.5rem}.mb4{margin-bottom:1rem}.md{font-weight:500}.mt2{margin-top:0.5rem}.mt3{margin-top:0.75rem}.mt4{margin-top:1rem}.mt6{margin-top:2rem}.mt7{margin-top:3rem}.mt8{margin-top:4rem}.mx{margin-inline:auto}.nu{text-decoration:none}.nw{white-space:nowrap}.oh{overflow:hidden}.p0{padding:0}.p4{padding:1rem}.p6{padding:2rem}.px3{padding-inline:0.75rem}.px4{padding-inline:1rem}.px5{padding-inline:1.5rem}.px6{padding-inline:2rem}.py10{padding-block:8rem}.py2{padding-block:0.5rem}.py3{padding-block:0.75rem}.py4{padding-block:1rem}.py8{padding-block:4rem}.r{border-radius:var(--r)}.r2{border-radius:calc(var(--r)*2)}.rel{position:relative}.rp{border-radius:999px}.rt{text-align:right}.sb{font-weight:600}.sy3>*+*{margin-top:0.75rem}.sy4>*+*{margin-top:1rem}.t0{font-size:0.75rem;line-height:1.5}.t1{font-size:0.875rem;line-height:1.5}.t2{font-size:1rem;line-height:1.5}.t3{font-size:1.125rem;line-height:1.5}.t4{font-size:1.25rem;line-height:1.5}.t7{font-size:2.25rem;line-height:1.1}.tn{font-variant-numeric:tabular-nums}.tt{letter-spacing:-.025em}.w5{max-width:72rem}.w6{max-width:65ch}.x{flex:1}@media(min-width:768px){.m-c2{grid-template-columns:repeat(2,minmax(0,1fr))}.m-c3{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(min-width:1024px){.l-c3{grid-template-columns:repeat(3,minmax(0,1fr))}}@media(prefers-reduced-motion:reduce){*,::before,::after{animation-duration:.01ms!important;transition-duration:.01ms!important}}@keyframes ss-spin{to{transform:rotateY(1turn)}}</style>
 </head>
 <body>
 
@@ -52,24 +67,27 @@
 
 <main id="root">
 
-  <section class="w5 mx px6 py10 gr g8 m-c2 ac">
-    <div>
-      <h1>Super small CSS.</h1>
-      <p class="mt6 t3 cm w6">A vocabulary of one-to-three-letter utilities and a generator that ships only the rules your page uses. 300 bytes of core, 0 bytes per class you don't use, dark mode included. <b class="ci">sscss</b> reads the same backwards.</p>
-      <p class="mt7 f fw g3"><a href="#use" class="r ba cw px5 py3 nu sb an-fx">Get started</a><a href="#try" class="r bs ci px5 py3 nu sb an-fx h-bs2">Try the playground</a></p>
-    </div>
-    <div class="r2 bs p6">
-      <p class="t1 sb cm m0">Minified + gzipped</p>
-      <p class="kb b ca mt2 mb1">300 B</p>
-      <p class="t1 cm m0 mb4">core: reset, tokens, dark mode — the only CSS every page carries</p>
-      <ol class="bars p0 m0 t1" style="list-style:none" aria-label="CSS frameworks by gzipped size">
-        <li class="ca b"><span class="rt">sscss core</span><i class="bar ba" style="--w: 2.3" aria-hidden="true"></i><b class="tn">300 B</b></li>
-        <li class="cm"><span class="rt">lit</span><i class="bar bs2" style="--w: 3.1" aria-hidden="true"></i><b class="tn">406 B</b></li>
-        <li class="cm"><span class="rt">this page*</span><i class="bar bs2" style="--w: 8.2" aria-hidden="true"></i><b class="tn">1,080 B</b></li>
-        <li class="cm"><span class="rt">Tailwind v4*</span><i class="bar bs2" style="--w: 29.1" aria-hidden="true"></i><b class="tn">3,813 B</b></li>
-        <li class="cm"><span class="rt">tachyons</span><i class="bar bs2" style="--w: 100" aria-hidden="true"></i><b class="tn">13,110 B</b></li>
-      </ol>
-      <p class="t0 cm mt3 m0">*the CSS generated for this page's 74 utilities, and the same page translated class-for-class to Tailwind v4 (also generated for the page only, with <code>dark:</code> variants to match). Same minifier, same gzip, for everyone.</p>
+  <section class="rel oh">
+    <canvas class="flow" aria-hidden="true"></canvas>
+    <div class="w5 mx px6 py10 gr g8 m-c2 ac rel">
+      <div>
+        <h1>Super small CSS.</h1>
+        <p class="mt6 t3 cm w6">A vocabulary of one-to-three-letter utilities and a generator that ships only the rules your page uses. 300 bytes of core, 0 bytes per class you don't use, dark mode included. <b class="ci">sscss</b> reads the same backwards.</p>
+        <p class="mt7 f fw g3"><a href="#use" class="r ba cw px5 py3 nu sb an-fx">Get started</a><a href="#try" class="r bs ci px5 py3 nu sb an-fx h-bs2">Try the playground</a></p>
+      </div>
+      <div class="r2 bs p6">
+        <p class="t1 sb cm m0">Minified + gzipped</p>
+        <p class="kb b ca mt2 mb1">300 B</p>
+        <p class="t1 cm m0 mb4">core: reset, tokens, dark mode — the only CSS every page carries</p>
+        <ol class="bars p0 m0 t1" style="list-style:none" aria-label="CSS frameworks by gzipped size">
+          <li class="ca b"><span class="rt">sscss core</span><i class="bar ba" style="--w: 2.3" aria-hidden="true"></i><b class="tn">300 B</b></li>
+          <li class="cm"><span class="rt">lit</span><i class="bar bs2" style="--w: 3.1" aria-hidden="true"></i><b class="tn">406 B</b></li>
+          <li class="cm"><span class="rt">this page*</span><i class="bar bs2" style="--w: 8.9" aria-hidden="true"></i><b class="tn">1,163 B</b></li>
+          <li class="cm"><span class="rt">Tailwind v4*</span><i class="bar bs2" style="--w: 30.7" aria-hidden="true"></i><b class="tn">4,019 B</b></li>
+          <li class="cm"><span class="rt">tachyons</span><i class="bar bs2" style="--w: 100" aria-hidden="true"></i><b class="tn">13,110 B</b></li>
+        </ol>
+        <p class="t0 cm mt3 m0">*the CSS generated for this page's 77 utilities, and the same page translated class-for-class to Tailwind v4 (generated for the page only, <code>dark:</code> variants to match). Same minifier, same gzip, for everyone.</p>
+      </div>
     </div>
   </section>
 
@@ -121,11 +139,34 @@
     </div>
   </section>
 
+  <section class="w5 mx px6 py10" id="vs">
+    <h2>Same component, both ways.</h2>
+    <p class="mt4 cm w6">The hero card of this page, written in Tailwind classes and in sscss. Same rendering, same dark mode. The class attributes are 277 bytes and 53 bytes — and the HTML is only the half of it: the CSS generated for this whole page is 4,019 B gzipped in Tailwind v4, 1,163 B in sscss.</p>
+    <div class="gr g6 m-c2 mt8 side">
+      <div>
+        <p class="t1 sb cm mb2 m0">Tailwind v4 · 401 B of markup</p>
+        <pre class="r bs p4 t0"><code>&lt;div class="rounded-2xl bg-gray-100 dark:bg-gray-900 p-8"&gt;
+  &lt;p class="text-sm font-semibold text-gray-600 dark:text-gray-400"&gt;Minified + gzipped&lt;/p&gt;
+  &lt;p class="kb font-bold text-green-700 dark:text-green-400"&gt;300 B&lt;/p&gt;
+  &lt;a class="rounded-lg bg-green-700 dark:bg-green-600 text-white px-6 py-3 font-semibold no-underline inline-block transition active:scale-[.97]" href="#use"&gt;Get started&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+      <div>
+        <p class="t1 sb ca mb2 m0">sscss · 177 B of markup</p>
+        <pre class="r bs p4 t0"><code>&lt;div class="r2 bs p6"&gt;
+  &lt;p class="t1 sb cm"&gt;Minified + gzipped&lt;/p&gt;
+  &lt;p class="kb b ca"&gt;300 B&lt;/p&gt;
+  &lt;a class="r ba cw px5 py3 sb nu ib an-fx" href="#use"&gt;Get started&lt;/a&gt;
+&lt;/div&gt;</code></pre>
+      </div>
+    </div>
+  </section>
+
   <section class="bs py10" id="motion">
     <div class="w5 mx px6 gr g8 m-c2 ac">
       <div>
         <h2>Motion, the basic package.</h2>
-        <p class="mt4 cm w6">Seven utilities, transform and opacity only, all off under <code>prefers-reduced-motion</code>: <code>an-in</code> for inserted elements, <code>an-rise</code> scroll entrance, <code>an-spin</code>, <code>an-grow</code> for meters, <code>an-fx</code> button feedback, <code>an-tone</code> for theme changes, <code>an-vt</code> to tune view transitions. They exist because a Minim page needed exactly these.</p>
+        <p class="mt4 cm w6">Eight utilities, transform and opacity only, all off under <code>prefers-reduced-motion</code>: <code>an-in</code> for inserted elements, <code>an-rise</code> scroll entrance, <code>an-spin</code>, <code>an-grow</code> for meters, <code>an-fx</code> button feedback, <code>an-tone</code> for theme changes, <code>an-vt</code> to tune view transitions — and <code>an-sea</code>, a CSS ocean for a hero, cut from one tiny SVG tile and colored by the tokens. They exist because a Minim page needed exactly these.</p>
         <p class="f fw g2 mt6">
           <button type="button" commandfor="root" command="--toggle" value="spin" class="r bs2 ci px4 py2 an-fx">toggle spin</button>
           <button type="button" commandfor="root" command="--inc" value="level" data-step="20" class="r bs2 ci px4 py2 an-fx">level +20</button>
@@ -138,6 +179,113 @@
         <div class="bs2 rp oh" style="height:1.2rem" data-bind="--pct:level" role="progressbar" aria-label="Level" aria-valuemin="0" aria-valuemax="100"><b class="bk hf ba rp an-grow"></b></div>
       </div>
     </div>
+  </section>
+
+  <section class="w5 mx px6 py10" id="sheet">
+    <div class="gr g6 m-c2 ae">
+      <div>
+        <h2>The whole vocabulary.</h2>
+        <p class="mt4 cm w6">209 utilities, one line each. Scales are written once: <code>p4</code> is padding 1rem, <code>mt6</code> margin-top 2rem, <code>t3</code> 1.125rem. Prefix any of them with <code>h-</code>, <code>m-</code> or <code>l-</code>.</p>
+      </div>
+      <div>
+        <label class="bk sb mb2" for="q">Filter</label>
+        <input id="q" placeholder="flex, padding, rp, dark…" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+    <div class="gr g6 m-c2 l-c3 mt8">
+      <div class="grp"><p class="t2 sb mb2">Layout</p><table>
+        <tr data-k="f flex row"><td><code>f</code></td><td class="cm">flex row</td></tr>
+        <tr data-k="fc flex column"><td><code>fc</code></td><td class="cm">flex column</td></tr>
+        <tr data-k="fr row (e.g. m-fr after fc)"><td><code>fr</code></td><td class="cm">row (e.g. m-fr after fc)</td></tr>
+        <tr data-k="fw wrap"><td><code>fw</code></td><td class="cm">wrap</td></tr>
+        <tr data-k="gr grid; children may shrink (code blocks don't overflow)"><td><code>gr</code></td><td class="cm">grid; children may shrink (code blocks don't overflow)</td></tr>
+        <tr data-k="c1–c6 equal grid columns"><td><code>c1–c6</code></td><td class="cm">equal grid columns</td></tr>
+        <tr data-k="bk block"><td><code>bk</code></td><td class="cm">block</td></tr>
+        <tr data-k="ib inline-block"><td><code>ib</code></td><td class="cm">inline-block</td></tr>
+        <tr data-k="hd hidden"><td><code>hd</code></td><td class="cm">hidden</td></tr>
+        <tr data-k="ac align center"><td><code>ac</code></td><td class="cm">align center</td></tr>
+        <tr data-k="ae align end"><td><code>ae</code></td><td class="cm">align end</td></tr>
+        <tr data-k="jc justify center"><td><code>jc</code></td><td class="cm">justify center</td></tr>
+        <tr data-k="jb space between"><td><code>jb</code></td><td class="cm">space between</td></tr>
+        <tr data-k="je justify end"><td><code>je</code></td><td class="cm">justify end</td></tr>
+        <tr data-k="pc center both axes (grid)"><td><code>pc</code></td><td class="cm">center both axes (grid)</td></tr>
+        <tr data-k="x grow to fill"><td><code>x</code></td><td class="cm">grow to fill</td></tr>
+        <tr data-k="fs0 never shrink"><td><code>fs0</code></td><td class="cm">never shrink</td></tr>
+        <tr data-k="mx center horizontally"><td><code>mx</code></td><td class="cm">center horizontally</td></tr>
+        <tr data-k="rel relative"><td><code>rel</code></td><td class="cm">relative</td></tr>
+        <tr data-k="abs absolute"><td><code>abs</code></td><td class="cm">absolute</td></tr>
+        <tr data-k="stk sticky to top"><td><code>stk</code></td><td class="cm">sticky to top</td></tr>
+        <tr data-k="ov scroll if needed"><td><code>ov</code></td><td class="cm">scroll if needed</td></tr>
+        <tr data-k="oh clip"><td><code>oh</code></td><td class="cm">clip</td></tr>
+        <tr data-k="wf full width"><td><code>wf</code></td><td class="cm">full width</td></tr>
+        <tr data-k="hf full height"><td><code>hf</code></td><td class="cm">full height</td></tr>
+        <tr data-k="vh at least the viewport"><td><code>vh</code></td><td class="cm">at least the viewport</td></tr>
+        <tr data-k="w0–w6 max-width 20rem 28rem 36rem 48rem 60rem 72rem 65ch"><td><code>w0–w6</code></td><td class="cm">max-width 20rem 28rem 36rem 48rem 60rem 72rem 65ch</td></tr>
+      </table></div>
+      <div class="grp"><p class="t2 sb mb2">Spacing <span class="cm md t1">0–10 = 0 0.25rem 0.5rem 0.75rem 1rem 1.5rem 2rem 3rem 4rem 6rem 8rem</span></p><table>
+        <tr data-k="p0–p10 padding"><td><code>p0–p10</code></td><td class="cm">padding</td></tr>
+        <tr data-k="px0–px10 padding left+right"><td><code>px0–px10</code></td><td class="cm">padding left+right</td></tr>
+        <tr data-k="py0–py10 padding top+bottom"><td><code>py0–py10</code></td><td class="cm">padding top+bottom</td></tr>
+        <tr data-k="pt0–pt10 padding top"><td><code>pt0–pt10</code></td><td class="cm">padding top</td></tr>
+        <tr data-k="pb0–pb10 padding bottom"><td><code>pb0–pb10</code></td><td class="cm">padding bottom</td></tr>
+        <tr data-k="m0–m10 margin"><td><code>m0–m10</code></td><td class="cm">margin</td></tr>
+        <tr data-k="mt0–mt10 margin top"><td><code>mt0–mt10</code></td><td class="cm">margin top</td></tr>
+        <tr data-k="mb0–mb10 margin bottom"><td><code>mb0–mb10</code></td><td class="cm">margin bottom</td></tr>
+        <tr data-k="my0–my10 margin top+bottom"><td><code>my0–my10</code></td><td class="cm">margin top+bottom</td></tr>
+        <tr data-k="g0–g10 gap"><td><code>g0–g10</code></td><td class="cm">gap</td></tr>
+        <tr data-k="sy0–sy10 space between children"><td><code>sy0–sy10</code></td><td class="cm">space between children</td></tr>
+      </table></div>
+      <div class="grp"><p class="t2 sb mb2">Type</p><table>
+        <tr data-k="t0–t9 font-size 0.75 0.875 1 1.125 1.25 1.5 1.875 2.25 3 3.75 rem"><td><code>t0–t9</code></td><td class="cm">font-size 0.75 0.875 1 1.125 1.25 1.5 1.875 2.25 3 3.75 rem</td></tr>
+        <tr data-k="b bold"><td><code>b</code></td><td class="cm">bold</td></tr>
+        <tr data-k="sb semibold"><td><code>sb</code></td><td class="cm">semibold</td></tr>
+        <tr data-k="md medium"><td><code>md</code></td><td class="cm">medium</td></tr>
+        <tr data-k="tt tight tracking (headlines)"><td><code>tt</code></td><td class="cm">tight tracking (headlines)</td></tr>
+        <tr data-k="lt tight leading"><td><code>lt</code></td><td class="cm">tight leading</td></tr>
+        <tr data-k="mono monospace"><td><code>mono</code></td><td class="cm">monospace</td></tr>
+        <tr data-k="up uppercase"><td><code>up</code></td><td class="cm">uppercase</td></tr>
+        <tr data-k="nu no underline"><td><code>nu</code></td><td class="cm">no underline</td></tr>
+        <tr data-k="tn tabular numbers"><td><code>tn</code></td><td class="cm">tabular numbers</td></tr>
+        <tr data-k="ctr text center"><td><code>ctr</code></td><td class="cm">text center</td></tr>
+        <tr data-k="rt text right"><td><code>rt</code></td><td class="cm">text right</td></tr>
+        <tr data-k="nw no wrap"><td><code>nw</code></td><td class="cm">no wrap</td></tr>
+        <tr data-k="bal balanced headline wrapping"><td><code>bal</code></td><td class="cm">balanced headline wrapping</td></tr>
+      </table></div>
+      <div class="grp"><p class="t2 sb mb2">Color</p><table>
+        <tr data-k="ci ink"><td><code>ci</code></td><td class="cm">ink</td></tr>
+        <tr data-k="cm muted"><td><code>cm</code></td><td class="cm">muted</td></tr>
+        <tr data-k="ca accent"><td><code>ca</code></td><td class="cm">accent</td></tr>
+        <tr data-k="cw text on accent"><td><code>cw</code></td><td class="cm">text on accent</td></tr>
+        <tr data-k="bg ground"><td><code>bg</code></td><td class="cm">ground</td></tr>
+        <tr data-k="bs surface"><td><code>bs</code></td><td class="cm">surface</td></tr>
+        <tr data-k="bs2 surface 2 (controls)"><td><code>bs2</code></td><td class="cm">surface 2 (controls)</td></tr>
+        <tr data-k="ba accent"><td><code>ba</code></td><td class="cm">accent</td></tr>
+      </table></div>
+      <div class="grp"><p class="t2 sb mb2">Shape</p><table>
+        <tr data-k="r radius"><td><code>r</code></td><td class="cm">radius</td></tr>
+        <tr data-k="r2 double radius"><td><code>r2</code></td><td class="cm">double radius</td></tr>
+        <tr data-k="rp pill"><td><code>rp</code></td><td class="cm">pill</td></tr>
+        <tr data-k="r0 square"><td><code>r0</code></td><td class="cm">square</td></tr>
+        <tr data-k="bd hairline border"><td><code>bd</code></td><td class="cm">hairline border</td></tr>
+        <tr data-k="bd2 accent border"><td><code>bd2</code></td><td class="cm">accent border</td></tr>
+        <tr data-k="sh floating shadow (dialogs)"><td><code>sh</code></td><td class="cm">floating shadow (dialogs)</td></tr>
+        <tr data-k="tr transition"><td><code>tr</code></td><td class="cm">transition</td></tr>
+        <tr data-k="op dimmed"><td><code>op</code></td><td class="cm">dimmed</td></tr>
+        <tr data-k="cp pointer"><td><code>cp</code></td><td class="cm">pointer</td></tr>
+        <tr data-k="sr screen-reader only"><td><code>sr</code></td><td class="cm">screen-reader only</td></tr>
+      </table></div>
+      <div class="grp"><p class="t2 sb mb2">Motion</p><table>
+        <tr data-k="an-in ease in when inserted"><td><code>an-in</code></td><td class="cm">ease in when inserted</td></tr>
+        <tr data-k="an-rise rise as it scrolls into view"><td><code>an-rise</code></td><td class="cm">rise as it scrolls into view</td></tr>
+        <tr data-k="an-spin spin (toggle with data-class)"><td><code>an-spin</code></td><td class="cm">spin (toggle with data-class)</td></tr>
+        <tr data-k="an-grow width = --pct %, eased"><td><code>an-grow</code></td><td class="cm">width = --pct %, eased</td></tr>
+        <tr data-k="an-fx press/hover feedback for buttons"><td><code>an-fx</code></td><td class="cm">press/hover feedback for buttons</td></tr>
+        <tr data-k="an-tone eased color changes"><td><code>an-tone</code></td><td class="cm">eased color changes</td></tr>
+        <tr data-k="an-sea an ocean at the bottom of a rel oh parent (--sea sets its color; accent by default)"><td><code>an-sea</code></td><td class="cm">an ocean at the bottom of a rel oh parent (--sea sets its color; accent by default)</td></tr>
+        <tr data-k="an-vt view transitions: .3s (data-each)"><td><code>an-vt</code></td><td class="cm">view transitions: .3s (data-each)</td></tr>
+      </table></div>
+    </div>
+    <p id="none" class="cm mt4">Nothing matches — it probably belongs in the page's own <code>&lt;style&gt;</code>.</p>
   </section>
 
   <section class="w5 mx px6 py10" id="use">
@@ -166,7 +314,36 @@ npx sscss --list                # the cheat sheet</code></pre>
   <p class="m0">MPL-2.0. sscss is a palindrome. Made in Florida by <a href="https://github.com/hertonwork" class="cm">Herton</a>. <a href="https://github.com/hertonwork/sscss/blob/main/index.html" class="cm">Source of this page</a>.</p>
 </footer>
 
-<!-- Minim lite, inlined at the end of <body>: binds before first paint. -->
+<!-- Minim, inlined at the end of <body>: binds before first paint. -->
 <script>"use strict";var minim=(()=>{var M=Object.defineProperty;var V=Object.getOwnPropertyDescriptor;var z=Object.getOwnPropertyNames;var F=Object.prototype.hasOwnProperty;var U=(e,t)=>{for(var r in t)M(e,r,{get:t[r],enumerable:!0})},G=(e,t,r,n)=>{if(t&&typeof t=="object"||typeof t=="function")for(let o of z(t))!F.call(e,o)&&o!==r&&M(e,o,{get:()=>t[o],enumerable:!(n=V(t,o))||n.enumerable});return e};var Q=e=>G(M({},"__esModule",{value:!0}),e);var te={};U(te,{JsUpdatr:()=>_,bind:()=>j,boot:()=>L,default:()=>ee,effect:()=>f,minim:()=>P,reactive:()=>y,tick:()=>B});var v=null,E=new Set,O=!1,C=class{constructor(t,r){this.fn=t;r?.addEventListener("abort",()=>this.dispose(),{once:!0}),this.run()}fn;deps=new Set;disposed=!1;run(){if(this.disposed)return;for(let r of this.deps)r.delete(this);this.deps.clear();let t=v;v=this;try{this.fn()}finally{v=t}}dispose(){this.disposed=!0;for(let t of this.deps)t.delete(this);this.deps.clear()}};function X(e){E.add(e),O||(O=!0,queueMicrotask(Y))}function Y(){let e=0;try{for(;E.size;){if(++e>100){E.clear(),console.error("minim: effect loop (an effect keeps writing what it reads)");break}let t=[...E];E.clear();for(let r of t)r.run()}}finally{O=!1}}var x=Symbol("iterate"),N=Symbol("raw"),H=new WeakMap,K=new WeakMap;function $(e,t){if(!v)return;let r=H.get(e);r||H.set(e,r=new Map);let n=r.get(t);n||r.set(t,n=new Set),n.add(v),v.deps.add(n)}function b(e,t){let r=H.get(e)?.get(t);if(r)for(let n of r)X(n)}function y(e){if(e===null||typeof e!="object"||e[N])return e;let t=K.get(e);if(t)return t;let r=new Proxy(e,{get(n,o,s){if(o===N)return n;$(n,o);let i=Reflect.get(n,o,s);return i!==null&&typeof i=="object"?y(i):i},set(n,o,s,i){let a=Object.hasOwn(n,o),d=n[o],u=Reflect.set(n,o,s?.[N]??s,i);return a?Object.is(d,s)||b(n,o):(b(n,o),b(n,x),Array.isArray(n)&&b(n,"length")),u},deleteProperty(n,o){let s=Object.hasOwn(n,o),i=Reflect.deleteProperty(n,o);return s&&(b(n,o),b(n,x)),i},has(n,o){return $(n,o),Reflect.has(n,o)},ownKeys(n){return $(n,x),Reflect.ownKeys(n)}});return K.set(e,r),r}function f(e,{signal:t}={}){let r=new C(e,t);return()=>r.dispose()}var B=()=>Promise.resolve(),T="[data-model],[data-watch],[data-show],[data-bind],[data-class],[data-each],[data-command]",S=new WeakSet,m=(e,t,r)=>r&&t[0]==="$"?t==="$i"?r.$i:t==="$"?r.$:m(r.$,t.slice(2)):t.split(".").reduce((n,o)=>n?.[o],e),k=(e,t,r,n)=>{if(n&&t[0]==="$"){if(t==="$"){n.list[n.$i]=r;return}e=n.$,t=t.slice(2)}let o=t.split("."),s=o.pop();o.reduce((i,a)=>i[a],e)[s]=r},q=e=>e==="true"?!0:e==="false"?!1:e!==""&&!isNaN(Number(e))?Number(e):e,W=e=>e.trim().split(/\s+/).map(t=>t.split(":")).filter(([t,r])=>t&&r);function I(e,t,r,n){let o=r,s=o.dataset,i=s.key??o.value,a=m(e,i,n);switch(t){case"--set":k(e,s.key,q(o.value),n);break;case"--toggle":k(e,i,!a,n);break;case"--inc":k(e,i,(a||0)+Number(s.step??1),n);break;case"--push":if(o.value!==""){let d=q(o.value);a.push(s.as?{[s.as]:d}:d),o instanceof HTMLInputElement&&(o.value="")}break;case"--remove":a.splice(Number(o.value),1);break}}var Z=0;function D(e,t,r,n){if(S.has(e))return;S.add(e),r.addEventListener("abort",()=>S.delete(e),{once:!0});let o=e.dataset;if(o.model!=null){let s=e,i=s.type==="checkbox",a=s.type==="number"||s.type==="range",d=()=>i?s.checked:a&&s.value!==""?s.valueAsNumber:s.value;f(()=>{let u=m(t,o.model,n)??"";i?s.checked=!!u:s.value!==String(u)&&(s.value=String(u))},{signal:r}),s.addEventListener("input",()=>k(t,o.model,d(),n),{signal:r})}if(o.watch!=null&&f(()=>{e.textContent=String(m(t,o.watch,n)??"")},{signal:r}),o.show!=null&&f(()=>{e.hidden=!m(t,o.show,n)},{signal:r}),o.bind!=null)for(let[s,i]of W(o.bind))f(()=>{let a=m(t,i,n),d=a==null||a===!1;s.startsWith("--")?d?e.style.removeProperty(s):e.style.setProperty(s,String(a)):d?e.removeAttribute(s):e.setAttribute(s,a===!0?"":String(a))},{signal:r});if(o.class!=null)for(let[s,i]of W(o.class))f(()=>{e.classList.toggle(s,!!m(t,i,n))},{signal:r});if(o.command!=null){let[s,i]=o.command.split(":"),[a,d]=s.split(".");e.addEventListener(a,u=>{(!d||u.key===d)&&I(t,i,e,n)},{signal:r})}if(o.each!=null&&e instanceof HTMLTemplateElement){let s=Z++,i=[],a,d=!0;r.addEventListener("abort",()=>a?.abort(),{once:!0}),f(()=>{let u=m(t,o.each,n),c=Array.isArray(u)?[...u]:[],l=()=>{a?.abort(),a=new AbortController,i.forEach(g=>g.remove()),i=[],c.forEach((g,A)=>{let h=e.content.cloneNode(!0),J={$:g,$i:A,list:u};h.querySelectorAll("*").forEach(p=>{for(let w of p.attributes)w.value==="$i"?w.value=String(A):w.value==="$"&&(w.value=String(g))}),h.querySelectorAll(T).forEach(p=>D(p,t,a.signal,J));for(let p of h.childNodes)p instanceof HTMLElement&&(p.style.viewTransitionName=`minim-${s}-${A}`);i.push(...h.childNodes),e.before(h)})},R=document.startViewTransition;d||!R?l():R.call(document,l),d=!1},{signal:r})}}function j(e,t,{commands:r=!0}={}){let n=new AbortController,{signal:o}=n,s=new WeakMap,i=c=>{if(s.has(c)||S.has(c))return;let l=new AbortController;o.addEventListener("abort",()=>l.abort(),{once:!0}),s.set(c,l),D(c,t,l.signal)},a=c=>{c instanceof Element&&(c.matches(T)&&i(c),c.querySelectorAll(T).forEach(i))},d=c=>{if(c instanceof Element)for(let l of[c,...c.querySelectorAll(T)])s.get(l)?.abort(),s.delete(l)};a(e);let u=new MutationObserver(c=>{for(let l of c)l.removedNodes.forEach(d),l.addedNodes.forEach(a)});return u.observe(e,{childList:!0,subtree:!0}),o.addEventListener("abort",()=>u.disconnect(),{once:!0}),r&&("command"in HTMLButtonElement.prototype?e.addEventListener("command",c=>{let l=c;l.command.startsWith("--")&&I(t,l.command,l.source)},{signal:o}):e.addEventListener("click",c=>{let l=c.target.closest('button[command^="--"]');l&&l.getAttribute("commandfor")===e.id&&I(t,l.getAttribute("command"),l)},{signal:o})),n}function L(e=document){e.querySelectorAll('script[type="application/json"][data-state]').forEach(t=>{let r=t.dataset.state||"state",n=y(JSON.parse(t.textContent||"{}"));globalThis[r]=n;let o=t.dataset.root&&e.getElementById(t.dataset.root)||e.body;j(o,n)})}typeof document<"u"&&(document.body?L():document.addEventListener("DOMContentLoaded",()=>L()));var P={reactive:y,effect:f,bind:j,tick:B,boot:L,observe:y,run:f},_=P,ee=P;return Q(te);})();</script>
+<!-- The hero's flow field (docs/flow.js, inlined and minified): starts after load, when the browser is idle. -->
+<script>const init=()=>{const a=document.querySelector("canvas.flow");if(!a)return;const e=a.getContext("webgl",{antialias:!1,alpha:!0,premultipliedAlpha:!0});if(!e)return;const h=location.hash==="#flow",A=e.getExtension("WEBGL_debug_renderer_info");if(!h&&/swiftshader|llvmpipe|softpipe|software|mesa offscreen/i.test(A?e.getParameter(A.UNMASKED_RENDERER_WEBGL):"")||!h&&navigator.connection&&navigator.connection.saveData)return;const y="attribute vec2 p;void main(){gl_Position=vec4(p,0.,1.);}",L=`precision mediump float;
+uniform vec2 r;uniform float t;uniform vec3 ink,ink2;uniform float dark;
+float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
+float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);
+return mix(mix(hash(i),hash(i+vec2(1.,0.)),f.x),mix(hash(i+vec2(0.,1.)),hash(i+vec2(1.,1.)),f.x),f.y);}
+float fbm(vec2 p){float a=.5,s=0.;for(int i=0;i<4;i++){s+=a*noise(p);p=mat2(1.6,1.2,-1.2,1.6)*p;a*=.5;}return s;}
+void main(){
+vec2 uv=(gl_FragCoord.xy-.5*r)/r.y;
+vec2 p=uv*1.6+vec2(t*.02,0.);
+// two rounds of warping, each drifting at its own pace
+vec2 q=vec2(fbm(p+vec2(0.,t*.05)),fbm(p+vec2(5.2,1.3)-t*.04));
+vec2 w=vec2(fbm(p+3.*q+vec2(1.7,9.2)+t*.03),fbm(p+3.*q+vec2(8.3,2.8)-t*.02));
+float n=fbm(p+2.5*w);
+// bands of ink: thin bright veins where the field crosses its own values
+float v=smoothstep(.35,.75,n)*(.55+.45*sin(n*20.+t*.3));
+float veins=pow(1.-abs(fract(n*6.+t*.05)*2.-1.),6.)*(.18+.2*dark);
+float a=(v*.7+veins+.16*q.x);
+// stronger to the right and the bottom, where there is no headline
+float side=smoothstep(-.9,.6,uv.x*.9+.25)*smoothstep(.75,-.2,uv.y);
+a*=side;
+vec3 col=mix(ink,ink2,w.y);
+gl_FragColor=vec4(col*a,a);}`,E=(t,r)=>{const n=e.createShader(t);return e.shaderSource(n,r),e.compileShader(n),n},i=e.createProgram();if(e.attachShader(i,E(e.VERTEX_SHADER,y)),e.attachShader(i,E(e.FRAGMENT_SHADER,L)),e.linkProgram(i),!e.getProgramParameter(i,e.LINK_STATUS))return;e.useProgram(i),e.bindBuffer(e.ARRAY_BUFFER,e.createBuffer()),e.bufferData(e.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),e.STATIC_DRAW);const k=e.getAttribLocation(i,"p");e.enableVertexAttribArray(k),e.vertexAttribPointer(k,2,e.FLOAT,!1,0,0);const s=t=>e.getUniformLocation(i,t),F=s("r"),P=s("t"),x=t=>{const r=t.trim().match(/^#([0-9a-f]{3,6})$/i);if(!r)return[0,0,0];const n=r[1].length===3?[...r[1]].map(o=>o+o).join(""):r[1];return[0,2,4].map(o=>parseInt(n.slice(o,o+2),16)/255)},R=()=>{const t=getComputedStyle(document.documentElement),r=matchMedia("(prefers-color-scheme: dark)").matches,n=x(t.getPropertyValue("--acc")),o=x(t.getPropertyValue("--ink"));e.uniform3fv(s("ink"),n),e.uniform3fv(s("ink2"),r?n.map((b,w)=>b*.5+o[w]*.5):n.map((b,w)=>b*.6+o[w]*.1)),e.uniform1f(s("dark"),r?1:0)};R(),matchMedia("(prefers-color-scheme: dark)").addEventListener("change",R);const T=matchMedia("(prefers-reduced-motion: reduce)").matches;let c=.5,f=0,m=0,u=!0,l=0,q=performance.now(),S=!h,v=0,p=0,g=0;const M=()=>{const t=Math.max(1,Math.round(a.clientWidth*c)),r=Math.max(1,Math.round(a.clientHeight*c));(t!==f||r!==m)&&(f=a.width=t,m=a.height=r,e.viewport(0,0,f,m),e.uniform2f(F,f,m))},_=t=>{if(l=0,M(),e.uniform1f(P,(t-q)/1e3),e.drawArrays(e.TRIANGLES,0,3),S){S=!1;const r=performance.now();if(e.finish(),performance.now()-r>40){a.remove();return}}a.classList.add("on"),v&&g<90&&(g++,t-v>19&&p++,g%30===0&&(p>8&&c>.2&&(c*=.7),p=0)),v=t,!T&&u&&!document.hidden&&(l=requestAnimationFrame(_))},d=()=>{l||(l=requestAnimationFrame(_))};new IntersectionObserver(t=>{u=t[0].isIntersecting,u&&d()}).observe(a),document.addEventListener("visibilitychange",()=>{document.hidden||d()}),addEventListener("resize",d),d()};addEventListener("load",()=>"requestIdleCallback"in window?requestIdleCallback(init,{timeout:1500}):setTimeout(init,300));</script>
+<!-- The cheat-sheet filter: three lines, the page's only script of its own. Groups with no visible row hide via :has(). -->
+<script>
+  const q = document.getElementById('q'), rows = [...document.querySelectorAll('#sheet tr[data-k]')];
+  q.oninput = () => { const v = q.value.trim().toLowerCase(); for (const r of rows) r.hidden = !!v && !r.dataset.k.includes(v); document.getElementById("none").hidden = !v || rows.some((r) => !r.hidden); };
+  document.getElementById("none").hidden = true;
+</script>
 </body>
 </html>

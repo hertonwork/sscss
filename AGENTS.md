@@ -11,7 +11,9 @@ one site, one skill.
 | `src/motion.mjs` | the motion package: the `an-*` utilities and their once-per-page globals | yes |
 | `bin/sscss.mjs` | the CLI (`--write`, `--check`, `--full`, `--core`, `--list`) | yes |
 | `dist/` | `sscss.css`, `sscss.base.css`, `sscss.core.css` — the "just load it" stylesheets | no — `npm run build` |
-| `docs/index.template.html` | the site; `index.html` is built from it with Minim, the playground's full vocabulary and the page's generated CSS inlined | yes (never `index.html` directly) |
+| `docs/index.template.html` | the site; `index.html` is built from it with Minim, the hero's flow-field shader (`docs/flow.js`, minified by esbuild), the cheat sheet, the playground's full vocabulary and the page's generated CSS inlined | yes (never `index.html` directly) |
+| `docs/flow.js` | the hero's WebGL flow field: starts after load, GPU only (software renderers bow out), adaptive resolution, still under reduced motion | yes |
+| `docs/og.png`, `scripts/og.mjs` | the link-preview card, rendered with Playwright; committed, re-run `node scripts/og.mjs` when the numbers change | yes |
 | `README.md` | the sizes table and the cheat sheet between `<!-- sizes -->` / `<!-- cheatsheet -->` markers are generated | yes, outside the markers |
 | `skills/sscss/` | the agent skill. `SKILL.md`, `assets/starter.html` are sources; `scripts/sscss.mjs`, `references/vocab.md`, `assets/sscss.*.css` are built | yes / no — `npm run build` |
 | `scripts/build.mjs` | builds all of the above and prints the sizes | yes |
@@ -46,7 +48,9 @@ and must keep doing so.
 - **Size claims are measured, not typed.** `npm run build` regenerates every number in the README and the site's hero
   chart from the actual output; the Tailwind row comes from `scripts/tailwind-equivalent.mjs`. Keep the comparison
   fair: same minifier, same gzip, generated-for-the-page on both sides.
-- **The site is one file with one request** and runs under a strict CSP (the browser test enforces it).
+- **The site is one file with one request** and runs under a strict CSP (the browser test enforces it). The hero shader is
+  inlined and starts after load on real GPUs only, so Lighthouse (GPU-less Chrome) measures the page without it — and
+  that is the page those visitors get. Keep it that way: no shader may run on a software renderer.
 - Commits are plain; PRs explain what changed and why in the body.
 
 ## Building a page with sscss
