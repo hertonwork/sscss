@@ -129,8 +129,12 @@ Build order: state JSON → markup with sscss classes and `data-*` bindings, ini
 
 ## Pitfalls we hit building the site
 
-- **`class="…"` inside text or `data-class`** was picked up as classes by a naive scanner. The generator only reads
-  `class` attributes inside tags; write `class=&quot;…&quot;` in prose anyway.
+- **`class="…"` inside text** was picked up as classes by a naive scanner. The generator only reads attributes inside
+  tags; write `class=&quot;…&quot;` in prose anyway.
+- **A class that only appears in `data-class="an-spin:busy"`** got no rule, because it is in no `class` attribute until
+  the state flips — the Minim demo's spin stopped. The generator now counts `data-class` toggles as used. A class a
+  script adds at runtime still needs to appear somewhere the generator reads: put it in a `data-class` or in the
+  page's own `<style>`.
 - **Small accent text on a surface** failed contrast at 4.1:1 with the original green. The default accent is now
   `#1a7a37` (4.9:1 on `--sf`, 5.4:1 with white on it). Changing the accent means re-checking both.
 - **`<pre>` in a grid column** overflowed on phones until `gr` gave children `min-width: 0`.

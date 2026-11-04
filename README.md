@@ -30,7 +30,7 @@ Measured the same way for everyone: latest source, same minifier, `gzip -9`, `br
 | | bytes | gzip | brotli |
 |---|---|---|---|
 | core (reset + tokens + dark mode) | 435 | 300 | 242 |
-| the site's page (76 utilities, generated) | 2,632 | 1,105 | 908 |
+| the site's page (77 utilities, generated) | 2,747 | 1,163 | 968 |
 | every utility | 6,187 | 2,106 | 1,742 |
 | every utility + responsive variants | 16,904 | 3,538 | 2,154 |
 <!-- /sizes -->
@@ -70,8 +70,9 @@ afternoon and never consulted again.
 2. **Scales.** Spacing `0–10` → `0 .25 .5 .75 1 1.5 2 3 4 6 8rem`. Type `t0–t9` → `.75rem … 3.75rem`.
    Widths `w0–w6` → `20 28 36 48 60 72rem` and `65ch`.
 3. **Variants.** `h-` hover, `m-` ≥768px, `l-` ≥1024px: `m-c2 l-c3`, `h-cm`, `l-f`.
-4. **Generation.** `sscss page.html` scans `class="…"` (ignoring `<style>` and `<script>`), emits core + one rule
-   per used class, groups the media queries, and emits motion keyframes once. Anything the vocabulary doesn't
+4. **Generation.** `sscss page.html` scans `class="…"` and the toggles in Minim's `data-class="cls:key"` (ignoring
+   `<style>` and `<script>`), emits core + one rule per used class, groups the media queries, and emits motion
+   keyframes once. Anything the vocabulary doesn't
    have is reported; if the page styles it in its own `<style>`, it isn't an error.
 
 ## Use it
