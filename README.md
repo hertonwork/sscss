@@ -30,7 +30,7 @@ Measured the same way for everyone: latest source, same minifier, `gzip -9`, `br
 | | bytes | gzip | brotli |
 |---|---|---|---|
 | core (reset + tokens + dark mode) | 435 | 300 | 242 |
-| the site's page (74 utilities, generated) | 2,531 | 1,080 | 889 |
+| the site's page (76 utilities, generated) | 2,632 | 1,105 | 908 |
 | every utility | 6,187 | 2,106 | 1,742 |
 | every utility + responsive variants | 16,904 | 3,538 | 2,154 |
 <!-- /sizes -->
@@ -117,7 +117,7 @@ those classes as yours. Keep it to what no utility can do (type ramps with `clam
 
 ## Motion: the basic package
 
-The seven animation utilities a [Minim](https://hertonwork.github.io/minim/) page needs and nothing more.
+The animation utilities a [Minim](https://hertonwork.github.io/minim/) page needs and nothing more.
 Transform and opacity only, every one switched off under `prefers-reduced-motion`, keyframes emitted once per page.
 
 | class | does | with Minim |
@@ -129,6 +129,11 @@ Transform and opacity only, every one switched off under `prefers-reduced-motion
 | `an-fx` | hover/press feedback for buttons | any `command` button |
 | `an-tone` | eased color changes | theme switches |
 | `an-vt` | View Transitions at .3s | `data-each` reorders |
+| `an-sea` | an ocean: two wave layers from one 480 px SVG tile, parallax by speed and direction; `--sea` sets its color (accent by default) | the bottom of a hero |
+
+`an-sea` is a hero decoration (0.5 KB gzipped): put the element first inside a `rel oh` parent and give the content
+that follows `rel`, so it paints above. It is generated for pages that use it and left out of the "every utility"
+stylesheets. The Minim page uses it as the no-WebGL fallback under its shader ocean.
 
 Import only the map if you want to build on it: `import { motion } from '@labs_kai/sscss/motion'`.
 
@@ -397,6 +402,7 @@ vocabulary, the rules that keep pages at Lighthouse 100, how to add page-own cla
 | `an-grow` | width = --pct %, eased |
 | `an-fx` | press/hover feedback for buttons |
 | `an-tone` | eased color changes |
+| `an-sea` | an ocean at the bottom of a rel oh parent (--sea sets its color; accent by default) |
 | `an-vt` | view transitions: .3s (data-each) |
 
 ### Variants

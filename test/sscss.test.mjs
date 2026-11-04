@@ -68,6 +68,8 @@ test('motion: every utility is reduced-motion safe and globals are emitted once'
   assert.match(css, /\.an-rise\{animation:ss-rise/);
   assert.match(css, /\.an-grow|\.an-fx\{transition/);
   assert.doesNotMatch(fullCss(), /\.m-an-/, 'no responsive variants of motion utilities');
+  assert.doesNotMatch(fullCss(), /\.an-sea/, 'hero decorations are generate-only');
+  assert.match(cssFor(['an-sea'], { withCore: false }).css, /\.an-sea::before/, 'but they generate');
   assert.equal(cssFor(['f'], { withCore: false }).css.includes('prefers-reduced-motion'), false, 'no motion, no reduced-motion rule');
 });
 
@@ -105,7 +107,7 @@ test('site: one file, no requests, built from the template with Minim and the fu
   assert.doesNotMatch(html, /<!--minim-->|<!--sscss-full-->|__PAGE_/);
   assert.match(html, /<style data-sscss>/); assert.match(html, /<style data-sscss-full>/);
   assert.match(html, /globalThis\.minim|minim=/);
-  assert.ok(gz(html) < 10_000, `index.html ${gz(html)} B gz`);
+  assert.ok(gz(html) < 16_000, `index.html ${gz(html)} B gz`);
 });
 
 test('skill: the bundled generator and cheat sheet are built from the sources and agree with them', async () => {

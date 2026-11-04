@@ -3,7 +3,7 @@
 //
 //   node scripts/tailwind-equivalent.mjs /tmp/tw      # writes /tmp/tw/page.html and /tmp/tw/in.css
 //   cd /tmp/tw && npm i tailwindcss @tailwindcss/cli && npx tailwindcss -i in.css -o out.css --minify
-//   gzip -9c out.css | wc -c                           # 3,813 B on 2026-11-03 (sscss: 1,071 B for the same page)
+//   gzip -9c out.css | wc -c                           # 4,019 B on 2026-11-04 (sscss: 1,480 B for the same page)
 import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
 import path from 'node:path';
 const outDir = process.argv[2] || '/tmp/tw';

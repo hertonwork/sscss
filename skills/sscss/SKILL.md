@@ -4,7 +4,7 @@ description: >-
   Style a web page with sscss ("super small css"): a vocabulary of 1–3 letter utility classes (f ac jb, p4 mt6, t3 b,
   ci bs ba, r rp, h-/m-/l- variants) and a generator that inlines only the CSS the page uses — 300 B core, about 1 KB
   for a whole landing page, automatic dark mode, zero stylesheet requests, Lighthouse 100. Includes the motion package
-  (an-in, an-rise, an-spin, an-grow, an-fx, an-tone, an-vt) built for Minim pages. Use this whenever a page must be
+  (an-in, an-rise, an-spin, an-grow, an-fx, an-tone, an-vt) built for Minim pages and a CSS-only ocean (an-sea) for a hero. Use this whenever a page must be
   tiny, fast, build-free, or pass PageSpeed; whenever someone asks for "utility classes but smaller than Tailwind", a
   page with no CSS framework request, or styling for a Minim page; and whenever an existing page's CSS should be
   replaced by generated, page-specific CSS. Pairs with the minim-page skill for state and events.
@@ -75,9 +75,8 @@ ahead of time — a CMS, a playground, user content.
 
 ### 4. Motion: the basic package
 
-Seven utilities, transform/opacity only, all switched off under `prefers-reduced-motion` (the generator adds that rule
-once when any is used) and keyframes emitted once per page. They were written for Minim pages and cover what one
-needs:
+Transform/opacity only, all switched off under `prefers-reduced-motion` (the generator adds that rule once when any
+is used) and keyframes emitted once per page. They were written for Minim pages and cover what one needs:
 
 | Class | Use with | Does |
 |---|---|---|
@@ -88,6 +87,17 @@ needs:
 | `an-grow` | `data-bind="--pct:level"` on the parent | `width: calc(var(--pct) * 1%)`, eased: meters, gauges |
 | `an-tone` | anything whose tokens change | eased color/background changes |
 | `an-vt` | pages with `data-each` reorders | View Transitions at .3s |
+| `an-sea` | a hero | an ocean at the bottom: two wave layers from one SVG tile, `--sea` sets the color |
+
+The ocean is a hero background at zero requests (it also serves as the fallback under a WebGL one):
+
+```html
+<section class="rel oh">
+  <div class="an-sea" aria-hidden="true"></div>        <!-- first, so it paints under -->
+  <div class="w5 mx px6 py10 rel"> … hero content … </div>   <!-- rel: paints above -->
+</section>
+<style>:root { --sea: #1f6feb }</style>   <!-- an-sea in blue instead of the accent (page's own style) -->
+```
 
 Entrance motion is transform-only on purpose: an opacity fade on off-screen content makes Lighthouse read the faded
 colors and fail the contrast audit. Don't add opacity-based entrances in the page's own `<style>` either.

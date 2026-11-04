@@ -160,9 +160,10 @@ export function classesIn(html) {
   return used;
 }
 
-/** Every utility, optionally with the responsive variants — the "just load it" stylesheet. */
+/** Every utility, optionally with the responsive variants — the "just load it" stylesheet. Decorations marked
+ *  generateOnly (an-sea, an-shade: a KB each) are left out; they are for pages that generate their CSS. */
 export function fullCss({ responsive = true } = {}) {
-  const names = Object.keys(vocab), plain = names.filter((n) => !n.startsWith('an-'));   // no m-an-spin
+  const names = Object.keys(vocab).filter((n) => !vocab[n].generateOnly), plain = names.filter((n) => !n.startsWith('an-'));   // no m-an-spin
   const all = [...names, ...(responsive ? plain.flatMap((n) => ['m-' + n, 'l-' + n]) : [])];
   return cssFor(all).css;
 }
