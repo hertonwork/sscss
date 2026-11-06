@@ -3,7 +3,7 @@
 **A vocabulary of 1–3 letter CSS utilities, and a generator that ships only the rules your page uses.**
 300 bytes of core. 0 bytes per class you don't use. Dark mode included. The name reads the same backwards.
 
-Site: [hertonwork.github.io/sscss](https://hertonwork.github.io/sscss/) · npm: [`@labs_kai/sscss`](https://www.npmjs.com/package/@labs_kai/sscss) · pairs with [Minim](https://github.com/hertonwork/minim) (reactivity in 1.2 KB)
+Site: [sscss.herton.work](https://sscss.herton.work/) · npm: [`@labs_kai/sscss`](https://www.npmjs.com/package/@labs_kai/sscss) · pairs with [Minim](https://github.com/hertonwork/minim) (reactivity in 1.2 KB)
 
 ```html
 <header class="w5 mx px6 py4 f ac jb">
@@ -35,7 +35,7 @@ Measured the same way for everyone: latest source, same minifier, `gzip -9`, `br
 | every utility + responsive variants | 16,904 | 3,538 | 2,154 |
 <!-- /sizes -->
 
-The number that matters is the one for **your page**: the second row is the [site](https://hertonwork.github.io/sscss/)
+The number that matters is the one for **your page**: the second row is the [site](https://sscss.herton.work/)
 itself. That same page translated class-for-class to Tailwind v4 (also generated for that page only, with `dark:`
 variants to match the automatic dark mode) gets 3,813 B of CSS — and its markup is 11% bigger gzipped, because
 `items-center justify-between` is longer than `ac jb`. `scripts/tailwind-equivalent.mjs` reproduces it.
@@ -118,7 +118,7 @@ those classes as yours. Keep it to what no utility can do (type ramps with `clam
 
 ## Motion: the basic package
 
-The animation utilities a [Minim](https://hertonwork.github.io/minim/) page needs and nothing more.
+The animation utilities a [Minim](https://minim.herton.work/) page needs and nothing more.
 Transform and opacity only, every one switched off under `prefers-reduced-motion`, keyframes emitted once per page.
 
 | class | does | with Minim |
@@ -141,7 +141,7 @@ Import only the map if you want to build on it: `import { motion } from '@labs_k
 ## With Minim
 
 sscss styles the page; [Minim](https://github.com/hertonwork/minim) makes it react — both inlined, one request,
-both under the fold of a Lighthouse 100. The [site](https://hertonwork.github.io/sscss/) is the example: the
+both under the fold of a Lighthouse 100. The [site](https://sscss.herton.work/) is the example: the
 playground is `<input data-model="cls">` and `<div data-bind="class:cls">`, nothing else.
 
 ```html
