@@ -5,6 +5,11 @@
 
 Site: [sscss.herton.work](https://sscss.herton.work/) · npm: [`@labs_kai/sscss`](https://www.npmjs.com/package/@labs_kai/sscss) · pairs with [Minim](https://github.com/hertonwork/minim) (reactivity in 1.2 KB)
 
+<p align="center">
+  <a href="https://sscss.herton.work/"><img src="docs/demo.gif" width="720" alt="The site: the flow-field hero, the class playground restyling a box as classes are typed, and the cheat sheet filtered live."></a>
+  <br><sub>The <a href="https://sscss.herton.work/">site</a> is built with sscss and runs on Minim: one file, one request, 100/100/100/100 on PageSpeed.</sub>
+</p>
+
 ```html
 <header class="w5 mx px6 py4 f ac jb">
   <strong class="t4 tt">Acme</strong>
