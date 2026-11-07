@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://sscss.herton.work/sitemap.xml
