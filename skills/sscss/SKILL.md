@@ -142,5 +142,9 @@ Build order: state JSON → markup with sscss classes and `data-*` bindings, ini
 - **Tag names in comments.** A head comment that said `<style data-sscss>` and `</head>` fooled an early `--write`
   into replacing the wrong block and inserting inside the comment. The generator now blanks comments before it
   looks; still, describe tags in comments ("the data-sscss style block") rather than writing them.
+- **`hidden` lost to a display utility.** Minim's `data-show` toggles the `hidden` attribute, but `class="f …"` sets
+  `display:flex`, which outranks the browser's `[hidden]{display:none}`, so a hidden flex row stayed visible (an
+  "update ready" banner showed on every visit). Utilities that set a visible display (`f fc gr bk ib`) now bring
+  `[hidden]{display:none!important}` with them, once per page; the core doesn't grow.
 - **A playground that needs every class** can't be generated for: inline the full vocabulary in a second `<style>`,
   minus what the page's generated block already carries (the site's build does this).
