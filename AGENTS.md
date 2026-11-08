@@ -11,7 +11,7 @@ one site, one skill.
 | `src/motion.mjs` | the motion package: the `an-*` utilities and their once-per-page globals | yes |
 | `bin/sscss.mjs` | the CLI (`--write`, `--check`, `--full`, `--core`, `--list`) | yes |
 | `dist/` | `sscss.css`, `sscss.base.css`, `sscss.core.css` — the "just load it" stylesheets | no — `npm run build` |
-| `docs/index.template.html` | the site; `index.html` is built from it with Minim, the hero's flow-field shader (`docs/flow.js`, minified by esbuild), the cheat sheet, the playground's full vocabulary and the page's generated CSS inlined | yes (never `index.html` directly) |
+| `docs/index.template.html` | the site; `index.html` is built from it with minim, the hero's flow-field shader (`docs/flow.js`, minified by esbuild), the cheat sheet, the playground's full vocabulary and the page's generated CSS inlined | yes (never `index.html` directly) |
 | `docs/flow.js` | the hero's WebGL flow field: starts after load, GPU only (software renderers bow out), adaptive resolution, still under reduced motion | yes |
 | `docs/og.png`, `scripts/og.mjs` | the link-preview card, rendered with Playwright; committed, re-run `node scripts/og.mjs` when the numbers change | yes |
 | `README.md` | the sizes table and the cheat sheet between `<!-- sizes -->` / `<!-- cheatsheet -->` markers are generated | yes, outside the markers |

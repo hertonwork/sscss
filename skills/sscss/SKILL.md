@@ -4,9 +4,9 @@ description: >-
   Style a web page with sscss ("super small css"): a vocabulary of 1–3 letter utility classes (f ac jb, p4 mt6, t3 b,
   ci bs ba, r rp, h-/m-/l- variants) and a generator that inlines only the CSS the page uses — 300 B core, about 1 KB
   for a whole landing page, automatic dark mode, zero stylesheet requests, Lighthouse 100. Includes the motion package
-  (an-in, an-rise, an-spin, an-grow, an-fx, an-tone, an-vt) built for Minim pages and a CSS-only ocean (an-sea) for a hero. Use this whenever a page must be
+  (an-in, an-rise, an-spin, an-grow, an-fx, an-tone, an-vt) built for minim pages and a CSS-only ocean (an-sea) for a hero. Use this whenever a page must be
   tiny, fast, build-free, or pass PageSpeed; whenever someone asks for "utility classes but smaller than Tailwind", a
-  page with no CSS framework request, or styling for a Minim page; and whenever an existing page's CSS should be
+  page with no CSS framework request, or styling for a minim page; and whenever an existing page's CSS should be
   replaced by generated, page-specific CSS. Pairs with the minim-page skill for state and events.
 ---
 
@@ -76,7 +76,7 @@ ahead of time — a CMS, a playground, user content.
 ### 4. Motion: the basic package
 
 Transform/opacity only, all switched off under `prefers-reduced-motion` (the generator adds that rule once when any
-is used) and keyframes emitted once per page. They were written for Minim pages and cover what one needs:
+is used) and keyframes emitted once per page. They were written for minim pages and cover what one needs:
 
 | Class | Use with | Does |
 |---|---|---|
@@ -102,19 +102,19 @@ The ocean is a hero background at zero requests (it also serves as the fallback 
 Entrance motion is transform-only on purpose: an opacity fade on off-screen content makes Lighthouse read the faded
 colors and fail the contrast audit. Don't add opacity-based entrances in the page's own `<style>` either.
 
-### 5. With Minim
+### 5. With minim
 
-sscss styles the page; [Minim](https://github.com/hertonwork/minim) makes it react, in the same file, with one
+sscss styles the page; [minim](https://github.com/hertonwork/minim) makes it react, in the same file, with one
 request. Use the **minim-page** skill (`npx skills add hertonwork/minim`) for the state, the `data-*` bindings, the
 commands and the Lighthouse checker; `assets/starter.html` here has both slots. The split of labor:
 
 - state flips a class or a CSS variable → `data-class="an-spin:busy"`, `data-bind="--pct:level"`,
   `data-bind="class:cls"` for a whole class list;
 - the stylesheet animates → the `an-*` utilities above;
-- Minim lite (1.2 KB) is enough when the page has no list and no `data-class`; the module build (2.5 KB) when it does.
+- minim lite (1.2 KB) is enough when the page has no list and no `data-class`; the module build (2.5 KB) when it does.
 
 Build order: state JSON → markup with sscss classes and `data-*` bindings, initial values pre-rendered → page-own
-`<style>` → `sscss --write` → inline Minim at the end of `<body>` → `check.mjs --lighthouse` from minim-page.
+`<style>` → `sscss --write` → inline minim at the end of `<body>` → `check.mjs --lighthouse` from minim-page.
 
 ## Checklist
 
@@ -132,7 +132,7 @@ Build order: state JSON → markup with sscss classes and `data-*` bindings, ini
 - **`class="…"` inside text** was picked up as classes by a naive scanner. The generator only reads attributes inside
   tags; write `class=&quot;…&quot;` in prose anyway.
 - **A class that only appears in `data-class="an-spin:busy"`** got no rule, because it is in no `class` attribute until
-  the state flips — the Minim demo's spin stopped. The generator now counts `data-class` toggles as used. A class a
+  the state flips — the minim demo's spin stopped. The generator now counts `data-class` toggles as used. A class a
   script adds at runtime still needs to appear somewhere the generator reads: put it in a `data-class` or in the
   page's own `<style>`.
 - **Small accent text on a surface** failed contrast at 4.1:1 with the original green. The default accent is now
@@ -142,7 +142,7 @@ Build order: state JSON → markup with sscss classes and `data-*` bindings, ini
 - **Tag names in comments.** A head comment that said `<style data-sscss>` and `</head>` fooled an early `--write`
   into replacing the wrong block and inserting inside the comment. The generator now blanks comments before it
   looks; still, describe tags in comments ("the data-sscss style block") rather than writing them.
-- **`hidden` lost to a display utility.** Minim's `data-show` toggles the `hidden` attribute, but `class="f …"` sets
+- **`hidden` lost to a display utility.** minim's `data-show` toggles the `hidden` attribute, but `class="f …"` sets
   `display:flex`, which outranks the browser's `[hidden]{display:none}`, so a hidden flex row stayed visible (an
   "update ready" banner showed on every visit). Utilities that set a visible display (`f fc gr bk ib`) now bring
   `[hidden]{display:none!important}` with them, once per page; the core doesn't grow.

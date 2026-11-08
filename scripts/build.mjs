@@ -28,7 +28,7 @@ let readme = await readFile(readmePath, 'utf8');
 readme = readme.replace(/<!-- cheatsheet -->[\s\S]*<!-- \/cheatsheet -->/, () => `<!-- cheatsheet -->\n${sheet}\n<!-- /cheatsheet -->`);
 
 // 3. the site: docs/index.template.html → index.html, one request.
-//    <!--minim-->       → Minim (module build, for data-class and CSS-variable bindings), inlined at the end of <body>
+//    <!--minim-->       → minim (module build, for data-class and CSS-variable bindings), inlined at the end of <body>
 //    <!--sscss-full-->  → every utility the page's own generated CSS won't already carry, so the playground can use any class
 //    then `sscss index.html --write` generates and inlines what the page itself uses, like on any other page.
 const tpl = path.join(root, 'docs/index.template.html'), out = path.join(root, 'index.html');
@@ -97,7 +97,7 @@ html = html.replaceAll('__PAGE_N__', String(pageN)).replaceAll('__PAGE_GZ__', pa
 await writeFile(out, html);
 execFileSync('node', [path.join(root, 'bin/sscss.mjs'), out, '--write'], { stdio: 'inherit' });
 const page = await readFile(out, 'utf8');
-console.log(`index.html  ${fmt(page)}  (playground extra ${gz(extra)} B gzip, Minim ${gz(minim)} B gzip, flow ${gz(flow)} B gzip)`);
+console.log(`index.html  ${fmt(page)}  (playground extra ${gz(extra)} B gzip, minim ${gz(minim)} B gzip, flow ${gz(flow)} B gzip)`);
 
 // 4. the skill: a self-contained generator (motion + vocab + cli in one file), the cheat sheet, the full stylesheet
 const skill = path.join(root, 'skills/sscss');

@@ -6,7 +6,7 @@ import { realpathSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { gzipSync } from 'node:zlib';
 
-// sscss/motion — the animation utilities a Minim page needs, and nothing more. Transform and opacity only; every
+// sscss/motion — the animation utilities a minim page needs, and nothing more. Transform and opacity only; every
 // one of them is switched off under prefers-reduced-motion (the `reduced` rule is added once whenever any is used).
 // An entry is { css(sel), global? } : css() returns the rules for one selector, global is emitted once per page.
 
@@ -168,7 +168,7 @@ export const variants = {
 };
 
 /** A utility that sets a visible display (f, fc, gr, bk, ib) outranks the browser's own [hidden]{display:none}, so an
- *  element with both stays visible — Minim's data-show toggles `hidden`, and a hidden flex row would show anyway. Every
+ *  element with both stays visible — minim's data-show toggles `hidden`, and a hidden flex row would show anyway. Every
  *  page that uses such a utility gets this once; pages that don't, and the core, pay nothing. */
 export const hiddenWins = '[hidden]{display:none!important}';
 
@@ -200,7 +200,7 @@ export function cssFor(classes, { withCore = true } = {}) {
   return { css: css + [...globals].join(''), unknown };
 }
 
-/** The class names an HTML document uses: class="…" inside tags, plus the classes Minim toggles from state with
+/** The class names an HTML document uses: class="…" inside tags, plus the classes minim toggles from state with
  *  data-class="cls:key cls2:key2" (they are not in any class attribute until the state flips, but the page needs
  *  their rules). <style> and <script> contents are skipped. */
 export function classesIn(html) {

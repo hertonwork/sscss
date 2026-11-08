@@ -110,7 +110,7 @@ test('cli: generates, --write inlines idempotently, page-own classes are not unk
   assert.match(list.stdout, /^\nLayout\n  f {7}flex row/);
 });
 
-test('site: one file, no requests, built from the template with Minim and the full vocabulary', async () => {
+test('site: one file, no requests, built from the template with minim and the full vocabulary', async () => {
   const html = await readFile(path.join(root, 'index.html'), 'utf8');
   assert.doesNotMatch(html, /<script[^>]+src=|<link[^>]+stylesheet/);
   assert.doesNotMatch(html, /<!--minim-->|<!--sscss-full-->|__PAGE_/);

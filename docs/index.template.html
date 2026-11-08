@@ -20,7 +20,7 @@
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%231a7a37'/%3E%3Ctext x='32' y='44' font-family='system-ui,sans-serif' font-weight='700' font-size='30' text-anchor='middle' fill='%23fff'%3Es%3C/text%3E%3C/svg%3E">
 
   <!-- Everything this page needs is in this file: sscss's CSS generated for it (data-sscss), the full vocabulary for the
-       playground (data-sscss-full), the page's own few rules, and Minim for the live bits. One request. -->
+       playground (data-sscss-full), the page's own few rules, and minim for the live bits. One request. -->
   <!--sscss-full-->
   <style>
     /* the page's own rules: what the vocabulary doesn't cover */
@@ -59,7 +59,7 @@
   <nav class="f ac g4 t1 md" aria-label="Site">
     <a href="https://github.com/hertonwork/sscss" class="nu ci h-cm">GitHub</a>
     <a href="https://www.npmjs.com/package/@labs_kai/sscss" class="nu ci h-cm">npm</a>
-    <a href="https://minim.herton.work/" class="nu ci h-cm">Minim</a>
+    <a href="https://minim.herton.work/" class="nu ci h-cm">minim</a>
     <a href="https://server.herton.work/" class="nu ci h-cm hd m-ib">server</a>
     <a href="#use" class="r ba cw px4 py2 nu nw an-fx">Use it</a>
   </nav>
@@ -94,7 +94,7 @@
   <section class="bs py10" id="try">
     <div class="w5 mx px6">
       <h2>Type classes. Watch the box.</h2>
-      <p class="mt4 cm w6">This playground runs on <a href="https://minim.herton.work/" class="ci">Minim</a>: the input writes <code>cls</code> into a JSON state tag and the box's <code>class</code> attribute follows it with <code>data-bind="class:cls"</code>. The whole vocabulary is on this page so anything you type works.</p>
+      <p class="mt4 cm w6">This playground runs on <a href="https://minim.herton.work/" class="ci">minim</a>: the input writes <code>cls</code> into a JSON state tag and the box's <code>class</code> attribute follows it with <code>data-bind="class:cls"</code>. The whole vocabulary is on this page so anything you type works.</p>
       <div class="gr g6 m-c2 mt8 ae">
         <div>
           <label class="bk sb mb2" for="cls">Classes</label>
@@ -158,7 +158,7 @@
     <div class="w5 mx px6 gr g8 m-c2 ac">
       <div>
         <h2>Motion, the basic package.</h2>
-        <p class="mt4 cm w6">Eight utilities, transform and opacity only, all off under <code>prefers-reduced-motion</code>: <code>an-in</code> for inserted elements, <code>an-rise</code> scroll entrance, <code>an-spin</code>, <code>an-grow</code> for meters, <code>an-fx</code> button feedback, <code>an-tone</code> for theme changes, <code>an-vt</code> to tune view transitions — and <code>an-sea</code>, a CSS ocean for a hero, cut from one tiny SVG tile and colored by the tokens. They exist because a Minim page needed exactly these.</p>
+        <p class="mt4 cm w6">Eight utilities, transform and opacity only, all off under <code>prefers-reduced-motion</code>: <code>an-in</code> for inserted elements, <code>an-rise</code> scroll entrance, <code>an-spin</code>, <code>an-grow</code> for meters, <code>an-fx</code> button feedback, <code>an-tone</code> for theme changes, <code>an-vt</code> to tune view transitions — and <code>an-sea</code>, a CSS ocean for a hero, cut from one tiny SVG tile and colored by the tokens. They exist because a minim page needed exactly these.</p>
         <p class="f fw g2 mt6">
           <button type="button" commandfor="root" command="--toggle" value="spin" class="r bs2 ci px4 py2 an-fx">toggle spin</button>
           <button type="button" commandfor="root" command="--inc" value="level" data-step="20" class="r bs2 ci px4 py2 an-fx">level +20</button>
@@ -199,7 +199,7 @@ __CHEATSHEET__
 npx sscss page.html --write     # inline only what the page uses
 npx sscss page.html --check     # exit 1 on unknown classes
 npx sscss --list                # the cheat sheet</code></pre>
-        <p class="cm">Pair it with <a href="https://minim.herton.work/" class="ci">Minim</a> for state and events: Minim lite and the sscss core are 1.6 KB together, inlined, and the page makes one request.</p>
+        <p class="cm">Pair it with <a href="https://minim.herton.work/" class="ci">minim</a> for state and events: minim lite and the sscss core are 1.6 KB together, inlined, and the page makes one request.</p>
       </div>
       <div class="sy4">
         <p class="t4 sb m0">Or just load it</p>
@@ -216,7 +216,7 @@ npx sscss --list                # the cheat sheet</code></pre>
   <p class="m0">MPL-2.0. sscss is a palindrome. Made in Florida by <a href="https://github.com/hertonwork" class="cm">Herton</a>. <a href="https://github.com/hertonwork/sscss/blob/main/index.html" class="cm">Source of this page</a>.</p>
 </footer>
 
-<!-- Minim, inlined at the end of <body>: binds before first paint. -->
+<!-- minim, inlined at the end of <body>: binds before first paint. -->
 <script><!--minim--></script>
 <!-- The hero's flow field (docs/flow.js, inlined and minified): starts after load, when the browser is idle. -->
 <script><!--flow--></script>
