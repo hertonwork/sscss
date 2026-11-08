@@ -7,7 +7,7 @@ import path from 'node:path';
 import { execFile } from 'node:child_process';
 import { promisify } from 'node:util';
 import { gzipSync } from 'node:zlib';
-import { core, cssFor, fullCss, ruleFor, vocab, groups, variants, scale, type, widths, classesIn } from '../src/vocab.mjs';
+import { core, cssFor, fullCss, ruleFor, vocab, groups, variants, scale, type, widths, classesIn, hiddenWins } from '../src/vocab.mjs';
 import { motion, reduced } from '../src/motion.mjs';
 
 const run = promisify(execFile);
@@ -39,12 +39,21 @@ test('core: reset, tokens, dark mode, and the 300 B promise', () => {
   assert.ok(gz(core) <= 320, `core is ${gz(core)} B gzipped`);
 });
 
+test('[hidden] beats display utilities: once per page that uses one, never in the core', () => {
+  const count = (css) => css.split(hiddenWins).length - 1;
+  assert.equal(count(cssFor(['f', 'gr', 'bk', 'ib', 'fc', 'm-f', 'l-gr']).css), 1, 'once, however many display utilities');
+  assert.ok(cssFor(['f']).css.endsWith(hiddenWins), 'after the utilities');
+  assert.equal(count(cssFor(['p4', 't3', 'ci', 'c2', 'hd']).css), 0, 'no display utility (hd sets display:none itself), no rule');
+  assert.equal(count(core), 0, 'the 300 B core stays 300 B');
+  assert.equal(count(fullCss()), 1);
+});
+
 test('variants: h- adds :hover, m-/l- wrap in media queries, grouped once each', () => {
   assert.equal(ruleFor('h-cm').rule, '.h-cm:hover{color:var(--mut)}');
   assert.equal(ruleFor('m-c2').variant, 'm');
   assert.equal(ruleFor('l-f').variant, 'l');
   const { css } = cssFor(['m-c2', 'm-f', 'l-c3', 'f'], { withCore: false });
-  assert.equal(css, '.f{display:flex}@media(min-width:768px){.m-c2{grid-template-columns:repeat(2,minmax(0,1fr))}.m-f{display:flex}}@media(min-width:1024px){.l-c3{grid-template-columns:repeat(3,minmax(0,1fr))}}');
+  assert.equal(css, '.f{display:flex}@media(min-width:768px){.m-c2{grid-template-columns:repeat(2,minmax(0,1fr))}.m-f{display:flex}}@media(min-width:1024px){.l-c3{grid-template-columns:repeat(3,minmax(0,1fr))}}' + hiddenWins);
   assert.equal((fullCss().match(/@media\(min-width:768px\)/g) || []).length, 1, 'one 768px query in the full sheet');
   assert.equal(variants.m.doc, 'at ≥ 768px');
 });
@@ -55,7 +64,7 @@ test('classesIn: tags only, no <style>/<script>, no text; data-class toggles cou
 
 test('generator: only used rules, sorted, deduplicated, unknown reported, core optional', () => {
   const { css, unknown } = cssFor(['p4', 'f', 'p4', 'nope', 'ac', 'x-y'], { withCore: false });
-  assert.equal(css, '.ac{align-items:center}.f{display:flex}.p4{padding:1rem}');
+  assert.equal(css, '.ac{align-items:center}.f{display:flex}.p4{padding:1rem}' + hiddenWins, 'f brings the [hidden] rule');
   assert.deepEqual(unknown, ['nope', 'x-y']);
   assert.ok(cssFor(['f']).css.startsWith(core));
 });

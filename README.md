@@ -35,9 +35,9 @@ Measured the same way for everyone: latest source, same minifier, `gzip -9`, `br
 | | bytes | gzip | brotli |
 |---|---|---|---|
 | core (reset + tokens + dark mode) | 435 | 300 | 242 |
-| the site's page (77 utilities, generated) | 2,747 | 1,163 | 968 |
-| every utility | 6,187 | 2,106 | 1,742 |
-| every utility + responsive variants | 16,904 | 3,538 | 2,154 |
+| the site's page (77 utilities, generated) | 2,779 | 1,178 | 981 |
+| every utility | 6,219 | 2,119 | 1,751 |
+| every utility + responsive variants | 16,936 | 3,550 | 2,152 |
 <!-- /sizes -->
 
 The number that matters is the one for **your page**: the second row is the [site](https://sscss.herton.work/)
@@ -162,6 +162,10 @@ playground is `<input data-model="cls">` and `<div data-bind="class:cls">`, noth
   <script>/* Minim, inlined */</script>
 </body>
 ```
+
+`data-show` toggles the `hidden` attribute. A utility that sets a visible display (`f`, `fc`, `gr`, `bk`, `ib`) would
+outrank the browser's `[hidden]` rule and keep the element on screen, so any page that uses one also gets
+`[hidden]{display:none!important}`, once. The core doesn't grow.
 
 ## For agents
 

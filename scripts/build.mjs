@@ -43,7 +43,7 @@ html = html.replace('<!--flow-->', () => flow.trim());
 const used = classesIn(html);
 const pageCss = cssFor([...used]).css;
 let extra = cssFor(Object.keys(vocab).filter((n) => !used.has(n)), { withCore: false }).css;
-for (const g of [...extra.matchAll(/@keyframes[^{]+\{[^}]*\}\}?|@media\(prefers-reduced-motion[\s\S]+?\}\}|::view-transition-group[^}]*\}/g)].map((m) => m[0]))
+for (const g of [...extra.matchAll(/@keyframes[^{]+\{[^}]*\}\}?|@media\(prefers-reduced-motion[\s\S]+?\}\}|::view-transition-group[^}]*\}|\[hidden\]\{[^}]*\}/g)].map((m) => m[0]))
   if (pageCss.includes(g)) extra = extra.replace(g, '');
 html = html.replace('<!--sscss-full-->', () => `<style data-sscss-full>${extra}</style>`);
 // the cheat sheet on the page: scale families (p0–p10, t0–t9, w0–w6, c1–c6) collapse to one row each
