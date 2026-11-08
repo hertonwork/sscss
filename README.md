@@ -35,7 +35,7 @@ Measured the same way for everyone: latest source, same minifier, `gzip -9`, `br
 | | bytes | gzip | brotli |
 |---|---|---|---|
 | core (reset + tokens + dark mode) | 435 | 300 | 242 |
-| the site's page (77 utilities, generated) | 2,779 | 1,178 | 981 |
+| the site's page (79 utilities, generated) | 2,823 | 1,186 | 985 |
 | every utility | 6,219 | 2,119 | 1,751 |
 | every utility + responsive variants | 16,936 | 3,550 | 2,152 |
 <!-- /sizes -->
