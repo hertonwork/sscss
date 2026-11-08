@@ -3,11 +3,11 @@
 **A vocabulary of 1–3 letter CSS utilities, and a generator that ships only the rules your page uses.**
 300 bytes of core. 0 bytes per class you don't use. Dark mode included. The name reads the same backwards.
 
-Site: [sscss.herton.work](https://sscss.herton.work/) · npm: [`@labs_kai/sscss`](https://www.npmjs.com/package/@labs_kai/sscss) · pairs with [Minim](https://github.com/hertonwork/minim) (reactivity in 1.2 KB)
+Site: [sscss.herton.work](https://sscss.herton.work/) · npm: [`@labs_kai/sscss`](https://www.npmjs.com/package/@labs_kai/sscss) · pairs with [minim](https://github.com/hertonwork/minim) (reactivity in 1.2 KB)
 
 <p align="center">
   <a href="https://sscss.herton.work/"><img src="docs/demo.gif" width="720" alt="The site: the flow-field hero, the class playground restyling a box as classes are typed, and the cheat sheet filtered live."></a>
-  <br><sub>The <a href="https://sscss.herton.work/">site</a> is built with sscss and runs on Minim: one file, one request, 100/100/100/100 on PageSpeed.</sub>
+  <br><sub>The <a href="https://sscss.herton.work/">site</a> is built with sscss and runs on minim: one file, one request, 100/100/100/100 on PageSpeed.</sub>
 </p>
 
 ```html
@@ -75,7 +75,7 @@ afternoon and never consulted again.
 2. **Scales.** Spacing `0–10` → `0 .25 .5 .75 1 1.5 2 3 4 6 8rem`. Type `t0–t9` → `.75rem … 3.75rem`.
    Widths `w0–w6` → `20 28 36 48 60 72rem` and `65ch`.
 3. **Variants.** `h-` hover, `m-` ≥768px, `l-` ≥1024px: `m-c2 l-c3`, `h-cm`, `l-f`.
-4. **Generation.** `sscss page.html` scans `class="…"` and the toggles in Minim's `data-class="cls:key"` (ignoring
+4. **Generation.** `sscss page.html` scans `class="…"` and the toggles in minim's `data-class="cls:key"` (ignoring
    `<style>` and `<script>`), emits core + one rule per used class, groups the media queries, and emits motion
    keyframes once. Anything the vocabulary doesn't
    have is reported; if the page styles it in its own `<style>`, it isn't an error.
@@ -123,10 +123,10 @@ those classes as yours. Keep it to what no utility can do (type ramps with `clam
 
 ## Motion: the basic package
 
-The animation utilities a [Minim](https://minim.herton.work/) page needs and nothing more.
+The animation utilities a [minim](https://minim.herton.work/) page needs and nothing more.
 Transform and opacity only, every one switched off under `prefers-reduced-motion`, keyframes emitted once per page.
 
-| class | does | with Minim |
+| class | does | with minim |
 |---|---|---|
 | `an-in` | fade + slide in when inserted (`@starting-style`) | items a `data-each` template adds |
 | `an-rise` | rise as it scrolls into view (scroll-driven, `@supports` guarded) | section parts |
@@ -139,13 +139,13 @@ Transform and opacity only, every one switched off under `prefers-reduced-motion
 
 `an-sea` is a hero decoration (0.5 KB gzipped): put the element first inside a `rel oh` parent and give the content
 that follows `rel`, so it paints above. It is generated for pages that use it and left out of the "every utility"
-stylesheets. The Minim page uses it as the no-WebGL fallback under its shader ocean.
+stylesheets. The minim page uses it as the no-WebGL fallback under its shader ocean.
 
 Import only the map if you want to build on it: `import { motion } from '@labs_kai/sscss/motion'`.
 
-## With Minim
+## With minim
 
-sscss styles the page; [Minim](https://github.com/hertonwork/minim) makes it react — both inlined, one request,
+sscss styles the page; [minim](https://github.com/hertonwork/minim) makes it react — both inlined, one request,
 both under the fold of a Lighthouse 100. The [site](https://sscss.herton.work/) is the example: the
 playground is `<input data-model="cls">` and `<div data-bind="class:cls">`, nothing else.
 
@@ -159,7 +159,7 @@ playground is `<input data-model="cls">` and `<div data-bind="class:cls">`, noth
     <div class="bs2 rp oh" style="height:1rem" data-bind="--pct:level"><b class="bk hf ba rp an-grow"></b></div>
     <button type="button" commandfor="root" command="--inc" value="level" data-step="10" class="r ba cw px4 py2 an-fx">+10</button>
   </main>
-  <script>/* Minim, inlined */</script>
+  <script>/* minim, inlined */</script>
 </body>
 ```
 

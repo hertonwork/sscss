@@ -1,4 +1,4 @@
-// sscss/motion — the animation utilities a Minim page needs, and nothing more. Transform and opacity only; every
+// sscss/motion — the animation utilities a minim page needs, and nothing more. Transform and opacity only; every
 // one of them is switched off under prefers-reduced-motion (the `reduced` rule is added once whenever any is used).
 // An entry is { css(sel), global? } : css() returns the rules for one selector, global is emitted once per page.
 
